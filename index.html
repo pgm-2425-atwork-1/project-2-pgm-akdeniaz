@@ -42,21 +42,29 @@
   <body>
     <!-- HEADER -->
     <header class="header">
-        <div class="nav-logo-holder">
-          <a href="#">wolfr's Best of 2019</a>
-          <div class="nav-toggle">
-            <button class="hamburger">
-              <img src="static/images/icons/burger.svg" alt="Hamburger Menu" />
-            </button>
-          </div>
-          <nav class="header-nav">
-            <a class="active" href="index.html">Intro</a>
-            <a href="albums.html">Albums</a>
-            <a href="films.html">Films</a>
-            <a href="games.html">Games</a>
-            <a href="series.html">Series</a>
-          </nav>
+      <div class="nav-logo-holder">
+        <a href="#">wolfr's Best of 2019</a>
+        <div class="nav-toggle">
+          <button class="hamburger">
+            <img src="static/images/icons/burger.svg" alt="Hamburger Menu" />
+          </button>
         </div>
+        <nav class="header-nav">
+          <div class="theme-mode">
+            <img
+              id="theme-icon"
+              src="static/images/icons/sun.svg"
+              alt="Theme Icon"
+            />
+          </div>
+          <button id="toggle-theme"></button>
+          <a class="active" href="index.html">Intro</a>
+          <a href="albums.html">Albums</a>
+          <a href="films.html">Films</a>
+          <a href="games.html">Games</a>
+          <a href="series.html">Series</a>
+        </nav>
+      </div>
     </header>
     <!-- MAIN -->
     <main>
@@ -91,5 +99,6 @@
         </ul>
       </div>
     </footer>
+    <script src="static/js/main.js"></script>
   </body>
 </html>

@@ -13,8 +13,7 @@
   --accent-light: hsla(223, 100%, 84%, 1);
   --accent-subtle-dark: hsla(223, 100%, 84%, 1);
   --accent-subtle-light: hsla(225, 34%, 37%, 1);
-  --sun-dark: hsla(68, 100%, 82%, 1);
-  --sun-light: hsla(68, 100%, 82%, 1);
+  --sun: hsla(68, 100%, 82%, 1);
 
   --font-body: "Fira Mono", monospace; /* fw= 400(regular) + fs=italic 500(medium) + italic */
   --font-header: "Fira Sans", sans-serif; /* 400(regular) 500(medium) */
@@ -33,31 +32,34 @@ html {
 }
 
 body {
-  font-family: "Untitled Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, Helvetica, Arial, sans-serif;
+  font-family: var(--font-body);
+  font-weight: 400;
   font-size: 1.7rem;
   line-height: 1.65;
-  color: #333;
-  background: #fff;
+  color: var(--subtle-dark);
+  background: var(--base-light);
   font-feature-settings: "liga", "kern";
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    color: #a0a4ae;
-    background: #1b2130;
-  }
+h1,
+h2,
+h3 {
+  font-family: var(--font-header);
+  font-weight: 400;
+}
+body.dark-mode {
+  color: var(--tint-dark);
+  background-color: var(--contrast-light);
+}
+
+body.light-mode {
+  background-color: var(--base-light);
+  color: black;
 }
 
 nav a {
-  color: #000;
+  color: var(--shade-dark);
   padding: 0.8rem 0;
   display: inline-block;
   transition: 0.17s background ease-in-out;
-}
-
-@media (prefers-color-scheme: dark) {
-  nav a {
-    color: #fff;
-  }
 }
