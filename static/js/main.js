@@ -21,3 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   themeIcon.src = "static/images/icons/sun.svg";
   themeIcon.className = "sun-mode";
 });
+
+document.getElementById("hamburger").addEventListener("click", (event) => {
+  const navHidden = document.getElementById("nav-hidden");
+  navHidden.classList.toggle("visible");
+});

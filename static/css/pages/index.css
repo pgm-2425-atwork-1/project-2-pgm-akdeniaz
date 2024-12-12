@@ -9,3 +9,9 @@
 .arrow-right {
   fill: white;
 }
+
+@media (max-width: 60rem) {
+  .intro-shape {
+    display: none;
+  }
+}

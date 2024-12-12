@@ -34,28 +34,8 @@ html {
 body {
   font-family: var(--font-body);
   font-weight: 400;
-  font-size: 1.7rem;
-  line-height: 1.65;
   color: var(--subtle-dark);
   background: var(--base-light);
-  font-feature-settings: "liga", "kern";
-}
-
-h1,
-h2,
-h3 {
-  font-family: var(--font-header);
-  font-weight: 400;
-}
-
-h1{
-    font-size: 6rem;
-}
-
-a {
-  text-decoration: none;
-  color: var(--contrast-dark);
-  transition: color 0.17s ease-in-out;
 }
 
 body.dark-mode {
@@ -80,6 +60,23 @@ header {
   border-bottom: 5px solid var(--subtle-dark);
 }
 
+h1,
+h2,
+h3 {
+  font-family: var(--font-header);
+  font-weight: 400;
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--contrast-dark);
+  transition: color 0.17s ease-in-out;
+}
+
 nav a {
   color: var(--shade-dark);
   padding: 0.8rem 0;
@@ -89,6 +86,11 @@ nav a {
 
 nav a:hover {
   text-underline-offset: 5px var(--accent-light);
+}
+
+svg {
+  float: right;
+  margin-left: 5px;
 }
 
 main {

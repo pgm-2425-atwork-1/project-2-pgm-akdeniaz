@@ -10,28 +10,43 @@
   justify-content: space-between;
 }
 
+.intro {
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/* hamburger + hidden overlay */
 .hamburger {
-  width: 30px;
-  height: 30px;
+  margin: auto;
+  background-color: var(--contrast-light);
+  border: none;
 }
-
-.header-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.header-nav a {
-  text-decoration: none;
+.nav-hidden {
+  display: none;
+  background-color: black;
   color: white;
-  margin: 0 15px;
+  padding: 10px;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 10;
 }
 
-.header-nav a.active {
-  font-weight: bold;
+.nav-hidden.visible {
+  display: block;
 }
 
+.nav-hidden a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--subtle-dark);
+}
+
+/* theme mode */
 .theme-mode {
   display: flex;
   align-items: center;
@@ -59,6 +74,25 @@
   z-index: 3;
 }
 
+/* main nav list*/
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.nav-list a {
+  text-decoration: none;
+  color: white;
+  margin: 0 15px;
+}
+
+.nav-list a.active {
+  font-weight: bold;
+}
+
+/* media queries */
 @media (min-width: 60rem) {
   .hamburger {
     display: none;
@@ -66,7 +100,7 @@
 }
 
 @media (max-width: 60rem) {
-  .header-nav {
+  .nav-list {
     display: none;
   }
 }
@@ -74,6 +108,7 @@
 @media (min-width: 30rem) {
 }
 
+/* footer */
 .footer-container {
   display: flex;
   justify-content: space-between;
@@ -89,7 +124,30 @@
   gap: 20px;
 }
 
-svg {
-  float: right;
-  margin-left: 5px;
+/* 
+/*Light mode styles
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--base-light);
+    color: var(--subtle-dark);
+  }
+
+  button {
+    background-color: var(--accent-light);
+  }
+
+  a {
+    color: black;
+  }
 }
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--contrast-light);
+    color: var(--contrast-dark);
+  }
+
+  a {
+    color: white;
+  }
+} */
