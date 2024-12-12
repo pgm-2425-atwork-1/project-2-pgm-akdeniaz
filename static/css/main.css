@@ -1,0 +1,12 @@
+/* header */
+.header {
+}
+.container {
+  margin: 0 auto;
+  max-width: 140rem;
+  padding: 0 1.6rem;
+}
+.nav-logo-holder {
+  display: flex;
+  justify-content: space-between;
+}
