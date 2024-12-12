@@ -1,0 +1,11 @@
+.btn-container {
+  border-radius: 10px transparent;
+}
+.main-btn {
+  background-color: var(--subtle-dark);
+  color: white;
+}
+
+.arrow-right {
+  fill: white;
+}

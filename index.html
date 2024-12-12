@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Best of 2024</title>
     <!-- robots.txt-->
     <meta name="robots" content="noindex,nofollow" />
     <!-- favicon -->
     <link
       rel="icon"
       type="image/png"
-      href="/my-favicon/favicon-96x96.png"
+      href="static/images/my-favicon/favicon-96x96.png"
       sizes="96x96"
     />
     <link
@@ -43,7 +43,7 @@
     <!-- HEADER -->
     <header class="header">
       <div class="nav-logo-holder">
-        <a href="#">wolfr's Best of 2019</a>
+        <a href="#">Best of 2024</a>
         <div class="nav-toggle">
           <button class="hamburger">
             <img src="static/images/icons/burger.svg" alt="Hamburger Menu" />
@@ -68,33 +68,56 @@
     </header>
     <!-- MAIN -->
     <main>
-      <h1>Best of 2024</h1>
-      <p>
-        Just like last year, I've compiled some lists of my favorite things of
-        this year. I always use this an exercise to test out some technical
-        things I didn't get to during the year, while also revisiting some of my
-        favorite content and/or releases. Enjoy.
-      </p>
-      <button>dive in</button>
+      <div class="main-content">
+        <h1>Best of 2024</h1>
+        <p>
+          Just like last year, I've compiled some lists of my favorite things of
+          this year. I always use this an exercise to test out some technical
+          things I didn't get to during the year, while also revisiting some of
+          my favorite content and/or releases. Enjoy.
+        </p>
+        <div class="btn-container">
+          <button class="main-btn">
+            Dive in
+            <svg
+              class="arrow-right"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.53033 13.5303L14.0607 7.99995L8.53033 2.46962L7.46967 3.53027L11.1893 7.24994L2.5 7.24994L2.5 8.74994L11.1893 8.74994L7.46967 12.4696L8.53033 13.5303Z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <img src="static/images/icons/intro-shape.svg" alt="intro" />
     </main>
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-container">
         <ul>
-          <li>©2024 Akdenis Niaziev</li>
           <li>
-            <a
-              href="https://twitter.com/intent/tweet?text=Check%20out%20@wolfr_2%20%27s%20Best%20of%202019&amp;url=https%3A%2F%2Fbestof2019.johanronsse.be"
-              >Tweet about this!</a
-            >
+            Dev by Akdenis Niaziev - <a href="#">&copy; Johan Ronsse</a> 2024
           </li>
-          <li>
-            <a href="/disclaimer/">Disclaimer</a>
-          </li>
-          <li>
-            <a href="https://johanronsse.be/blog/making-of-best-of-2019"
-              >Read the <em>Making of</em></a
-            >
+
+          <li class="">
+            Follow me on
+            <a href="#">
+              <svg
+                width="12"
+                height="10"
+                viewBox="0 0 12 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.71938 0H10.417L6.70814 4.23596L11.0714 10H7.6549L4.97914 6.50405L1.91737 10H0.218596L4.18561 5.46924L0 0H3.50305L5.92181 3.19534L8.71938 0ZM8.12351 8.98457H9.06426L2.99195 0.962124H1.98254L8.12351 8.98457Z"
+                /></svg
+            ></a>
           </li>
         </ul>
       </div>
@@ -102,3 +125,4 @@
     <script src="static/js/main.js"></script>
   </body>
 </html>
+

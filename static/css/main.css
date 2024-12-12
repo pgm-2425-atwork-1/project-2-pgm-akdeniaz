@@ -24,7 +24,7 @@
 
 .header-nav a {
   text-decoration: none;
-  color: #000;
+  color: white;
   margin: 0 15px;
 }
 
@@ -59,17 +59,37 @@
   z-index: 3;
 }
 
-@media (min-width: 80rem) {
+@media (min-width: 60rem) {
   .hamburger {
     display: none;
   }
 }
 
-@media (max-width: 80rem) {
+@media (max-width: 60rem) {
   .header-nav {
     display: none;
   }
 }
 
-@media (min-width: 24.375rem) {
+@media (min-width: 30rem) {
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.footer-container ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+svg {
+  float: right;
+  margin-left: 5px;
 }
