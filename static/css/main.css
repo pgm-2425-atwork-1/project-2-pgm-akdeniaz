@@ -1,12 +1,27 @@
 /* header */
 .header {
-}
-.container {
   margin: 0 auto;
   max-width: 140rem;
   padding: 0 1.6rem;
 }
+
 .nav-logo-holder {
   display: flex;
   justify-content: space-between;
+}
+.hamburger {
+  width: 30px;
+  height: 30px;
+}
+
+@media (min-width: 63rem) {
+  .hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 63rem) {
+  .header-nav {
+    display: none;
+  }
 }
