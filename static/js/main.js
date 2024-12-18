@@ -48,3 +48,36 @@ document.getElementById("hamburger").addEventListener("click", () => {
   const navHidden = document.getElementById("nav-hidden");
   navHidden.classList.toggle("visible");
 });
+
+// PREV <=> NEXT BUTTONS
+document.addEventListener("DOMContentLoaded", () => {
+  const navLinks = Array.from(document.querySelectorAll(".nav-list a"));
+  const currentPage = window.location.pathname.split("/").pop();
+  
+  // Find the current page index
+  const currentIndex = navLinks.findIndex((link) => link.getAttribute("href") === currentPage);
+
+  // Get the previous and next pages
+  const prevPage = currentIndex > 0 ? navLinks[currentIndex - 1].getAttribute("href") : null;
+  const nextPage = currentIndex < navLinks.length - 1 ? navLinks[currentIndex + 1].getAttribute("href") : null;
+
+  // Update the buttons
+  const prevButton = document.getElementById("prev-button");
+  const nextButton = document.getElementById("next-button");
+
+  if (prevPage) {
+    prevButton.addEventListener("click", () => {
+      window.location.href = prevPage;
+    });
+  } else {
+    prevButton.style.display = "none";
+  }
+
+  if (nextPage) {
+    nextButton.addEventListener("click", () => {
+      window.location.href = nextPage;
+    });
+  } else {
+    nextButton.style.display = "none";
+  }
+});
