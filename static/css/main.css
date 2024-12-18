@@ -54,14 +54,14 @@
   margin-left: auto;
 }
 
-#theme-icon {
+.theme-icon {
   cursor: pointer;
   width: 24px;
   height: 24px;
   z-index: 2;
 }
 
-#toggle-theme {
+.toggle-theme {
   position: absolute;
   top: 0;
   left: 0;

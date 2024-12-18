@@ -1,3 +1,4 @@
+// swtich between dark/ light mode
 document.getElementById("theme-icon").addEventListener("click", () => {
   const body = document.body;
   const themeIcon = document.getElementById("theme-icon");
@@ -13,6 +14,7 @@ document.getElementById("theme-icon").addEventListener("click", () => {
   }
 });
 
+// by default makes it dark themed
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
   const themeIcon = document.getElementById("theme-icon");

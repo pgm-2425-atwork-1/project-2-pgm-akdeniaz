@@ -40,6 +40,54 @@
   </head>
   <body>
     <!-- HEADER -->
+    <header class="header">
+      <!-- intro a link -->
+      <div class="nav-logo-holder">
+        <a class="intro" href="index.html">Best of 2024</a>
+        <!-- theme mode logo -->
+        <div class="theme-mode">
+          <img
+            id="theme-icon"
+            class="theme-icon"
+            src="static/images/icons/sun.svg"
+            alt="Theme Icon"
+          />
+        </div>
+        <!-- hamburger function + hidden overlay -->
+        <div class="nav-toggle">
+          <button class="hamburger" id="hamburger">
+            <svg
+              margin="auto"
+              width="40"
+              height="40"
+              viewBox="0 0 40 40"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill="white"
+                d="M9.5 12.5C9.5 11.6703 10.1703 11 11 11 H29C29.8297 11 30.5 11.6703 30.5 12.5C30.5 13.3297 29.8297 14 29 14H11C10.1703 14 9.5 13.3297 9.5 12.5ZM9.5 20C9.5 19.1703 10.1703 18.5 11 18.5H29C29.8297 18.5 30.5 19.1703 30.5 20C30.5 20.8297 29.8297 21.5 29 21.5H11C10.1703 21.5 9.5 20.8297 9.5 20ZM30.5 27.5C30.5 28.3297 29.8297 29 29 29H11C10.1703 29 9.5 28.3297 9.5 27.5C9.5 26.6703 10.1703 26 11 26H29C29.8297 26 30.5 26.6703 30.5 27.5Z"
+              />
+            </svg>
+          </button>
+        </div>
+        <nav class="nav-hidden" id="nav-hidden">
+          <a href="index.html">Intro</a>
+          <a href="albums.html">Albums</a>
+          <a href="films.html">Films</a>
+          <a href="games.html">Games</a>
+          <a href="series.html">Series</a>
+        </nav>
+        <!-- main nav list -->
+        <nav class="nav-list">
+          <button id="toggle-theme" class="toggle-theme"></button>
+          <a class="active" href="index.html">Intro</a>
+          <a href="albums.html">Albums</a>
+          <a href="films.html">Films</a>
+          <a href="games.html">Games</a>
+          <a href="series.html">Series</a>
+        </nav>
+      </div>
+    </header>
     <!-- MAIN -->
     <main>
       <p>My favorite</p>
@@ -183,5 +231,29 @@
       </section>
     </main>
     <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <ul>
+          <li>
+            Dev by Akdenis Niaziev - <a href="#">&copy; Johan Ronsse</a> 2024
+          </li>
+
+          <li class="">
+            Follow me on
+            <a href="#">
+              <svg
+                width="12"
+                height="10"
+                viewBox="0 0 12 10"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M8.71938 0H10.417L6.70814 4.23596L11.0714 10H7.6549L4.97914 6.50405L1.91737 10H0.218596L4.18561 5.46924L0 0H3.50305L5.92181 3.19534L8.71938 0ZM8.12351 8.98457H9.06426L2.99195 0.962124H1.98254L8.12351 8.98457Z"
+                /></svg
+            ></a>
+          </li>
+        </ul>
+      </div>
+    </footer>
   </body>
 </html>
