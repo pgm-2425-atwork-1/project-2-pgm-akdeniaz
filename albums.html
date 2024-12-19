@@ -45,13 +45,13 @@
       <div class="nav-logo-holder">
         <a class="intro" href="index.html">Best of 2024</a>
         <!-- theme mode logo -->
-        <div class="theme-mode">
+        <button class="theme-mode">
           <img
             class="theme-icon"
             src="static/images/icons/sun.svg"
             alt="Theme Icon"
           />
-        </div>
+        </button>
         <!-- hamburger function + hidden overlay -->
         <div class="nav-toggle">
           <button class="hamburger" id="hamburger">
@@ -69,201 +69,79 @@
             </svg>
           </button>
         </div>
-        <nav class="nav-hidden" id="nav-hidden">
+        <nav class="nav-list" id="nav-list">
           <a href="index.html">Intro</a>
           <a href="albums.html">Albums</a>
           <a href="films.html">Films</a>
           <a href="games.html">Games</a>
           <a href="series.html">Series</a>
-        </nav>
-        <!-- main nav list -->
-        <nav class="nav-list">
-          <button class="toggle-theme"></button>
-          <a class="active" href="index.html">Intro</a>
-          <a href="albums.html">Albums</a>
-          <a href="films.html">Films</a>
-          <a href="games.html">Games</a>
-          <a href="series.html">Series</a>
-        </nav>
+        </nav>        
       </div>
     </header>
     <!-- MAIN -->
-    <main>
-      <h2>Albums</h2>
-      <p>
-        Spotify’s Wrapped told me that I listend to Spotify for +-74000 minutes.
-        That’s less than the 94k and 92k of 2022 and 2023. I think as my job
-        moves towards management, I have more meetings, and this changes how
-        much I can listen to music. I re discovered Mac Miller (RIP), enjoyed
-        Marc Martell’s Queen cover album and enjoyed releases from artists that
-        are there to stay: The National and Calexico.
-      </p>
-
-      <section>
-        <!-- eerste hero -->
-        <article>
-          <img
-            src="static/images/albums/Poliça - Music for the Long Emergency.jpg"
-            alt="Poliça"
-          />
-          <h3>Poliça - Music for the Long Emergency</h3>
-          <p class="date">Month 00,0000</p>
-          <div class="tags">
-            <a href="#">indie rock</a>
-            <a href="#">soft</a>
-          </div>
-        </article>
-        <!-- tweede hero -->
-        <article>
-          <img
-            src="static/images/albums/Mac Miller - The Divine Feminine.jpg"
-            alt="Mac Miller"
-          />
-          <h3>Mac Miller - The Divine Feminine</h3>
-          <p class="date">Month 00,0000</p>
-          <div class="tags">
-            <a href="#">hiphop</a>
-            <a href="#">rap</a>
-          </div>
-        </article>
-        <!-- derde hero -->
-        <article>
-          <img
-            src="static/images/albums/Marc Martell - Thunderbolt and Lightning.jpg"
-            alt="Marc Martell"
-          />
-          <h3>Marc Martell - Thunderbolt and Lightning</h3>
-          <p class="date">Month 00,0000</p>
-          <div class="tags">
-            <a href="#">covers</a>
-            <a href="#">rock</a>
-            <a href="#">opera</a>
-          </div>
-        </article>
-        <!-- vierde hero -->
-        <article>
-          <img
-            src="static/images/albums/Big Thief - U.F.O.F..jpg"
-            alt="Big Thief"
-          />
-          <h3>Big Thief - U.F.O.F</h3>
-          <p class="date">Month 00,0000</p>
-          <div class="tags">
-            <a href="#">pop</a>
-            <a href="#">indie</a>
-          </div>
-        </article>
-        <!-- vijf hero -->
-        <article>
-          <img src="static/images/albums/Brihang - CASCO.jpg" alt="Brihang" />
-          <h3>Brihang - CASCO</h3>
-          <p class="date">Month 00,0000</p>
-          <div class="tags">
-            <a href="#">rap</a>
-            <a href="#">hiphop</a>
-            <a href="#">belgian</a>
-          </div>
-        </article>
-        <!-- zes hero -->
-        <article>
-          <img
-            src="static/images/albums/The National - I am Easy to find.jpg"
-            alt="The National"
-          />
-          <h3>The National - I am Easy to find</h3>
-          <p class="date">Month 00,0000</p>
-          <div class="tags">
-            <a href="#">soft</a>
-            <a href="#">rock</a>
-          </div>
-        </article>
-        <!-- zeven hero -->
-        <article>
-          <img
-            src="static/images/albums/Calexico - The Thread that Keeps us.jpg"
-            alt="Calexico"
-          />
-          <h3>Calexico - The Thread that Keeps us</h3>
-          <p class="date">Month 00,0000</p>
-          <div class="tags">
-            <a href="#">rock</a>
-            <a href="#">folk</a>
-          </div>
-        </article>
-        <!-- acht hero -->
-        <article>
-          <img
-            src="static/images/albums/Balthazar - Fever.jpg"
-            alt="Balthazar"
-          />
-          <h3>Balthazar - Feve us</h3>
-          <p class="date">Month 00,0000</p>
-          <div class="tags">
-            <a href="#">belgian</a>
-            <a href="#">pop rock</a>
-          </div>
-        </article>
-        <!-- negen hero -->
-        <article>
-          <img
-            src="static/images/albums/Wooden Shjips - V..jpg"
-            alt="Wooden Shjips"
-          />
-          <h3>Calexico - The Thread that Keeps us</h3>
-          <p class="date">Month 00,0000</p>
-          <div class="tags">
-            <a href="#">psychedelic</a>
-            <a href="#">rock</a>
-          </div>
-        </article>
-      </section>
-    </main>
-    <section class="categories-nav">
-      <div class="actions">
-        <button id="prev-button">
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M6.96967 2.46973L1.43934 8.00006L6.96967 13.5304L8.03033 12.4697L4.31066 8.75006H13V7.25006H4.31066L8.03033 3.53039L6.96967 2.46973Z"
-            />
-          </svg>
-          <span>Previous: Intro</span>
-        </button>
-        <button id="next-button">
-          <span>Next: Movies</span>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M8.53033 13.5303L14.0607 7.99995L8.53033 2.46962L7.46967 3.53027L11.1893 7.24994L2.5 7.24994L2.5 8.74994L11.1893 8.74994L7.46967 12.4696L8.53033 13.5303Z"
-            />
-          </svg>
-        </button>
+    <main class="main-albums">
+      <div class="album-intro">
+        <h1><span>My favorite</span>albums</h1>
+        <p>
+          Spotify’s Wrapped told me that I listened to Spotify for +-74000
+          minutes. That’s less than the 94k and 92k of 2022 and 2023. I think as
+          my job moves towards management, I have more meetings, and this
+          changes how much I can listen to music. I re-discovered Mac Miller
+          (RIP), enjoyed Marc Martell’s Queen cover album and enjoyed releases
+          from artists that are there to stay: The National and Calexico.
+        </p>
       </div>
-    </section>
-    
+      <section id="album-section">
+      </section>
+      
+      <!-- PREVIOUS & NEXT BUTTONS -->
+      <div class="categories-nav">
+        <div class="actions">
+          <a id="prev-button" href="#" class="nav-action">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6.96967 2.46973L1.43934 8.00006L6.96967 13.5304L8.03033 12.4697L4.31066 8.75006H13V7.25006H4.31066L8.03033 3.53039L6.96967 2.46973Z"
+              />
+            </svg>
+            <span>Previous: Intro</span>
+          </a>
+          <a id="next-button" href="#" class="nav-action">
+            <span>Next: Films</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.53033 13.5303L14.0607 7.99995L8.53033 2.46962L7.46967 3.53027L11.1893 7.24994L2.5 7.24994L2.5 8.74994L11.1893 8.74994L7.46967 12.4696L8.53033 13.5303Z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </main>
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-container">
         <ul>
           <li>
-            Dev by Akdenis Niaziev - <a href="#">&copy; Johan Ronsse</a> 2024
+            Dev by Akdenis Niaziev -
+            <a href="https://johanronsse.be/">&copy; Johan Ronsse</a> 2024
           </li>
 
           <li class="">
             Follow me on
-            <a href="#">
+            <a href="https://x.com/wolfr_2">
               <svg
                 width="12"
                 height="10"

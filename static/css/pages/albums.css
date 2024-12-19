@@ -1,0 +1,15 @@
+.main-albums {
+  flex-direction: column;
+}
+
+.album-intro {
+  padding-bottom: 3.6rem;
+  padding-left: 5rem;
+  width: 31.25rem;
+  line-height: 1;
+}
+
+.album-selection {
+  display: grid;
+}
+

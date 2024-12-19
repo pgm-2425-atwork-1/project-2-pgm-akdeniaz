@@ -45,15 +45,14 @@
       <div class="nav-logo-holder">
         <a class="intro" href="index.html">Best of 2024</a>
         <!-- theme mode logo -->
-        <div class="theme-mode">
+        <button class="theme-mode">
           <img
             class="theme-icon"
             src="static/images/icons/sun.svg"
             alt="Theme Icon"
           />
-        </div>
+        </button>
         <!-- hamburger function + hidden overlay -->
-        <div class="nav-toggle">
           <button class="hamburger" id="hamburger">
             <svg
               margin="auto"
@@ -68,23 +67,14 @@
               />
             </svg>
           </button>
-        </div>
-        <nav class="nav-hidden" id="nav-hidden">
+        </>
+        <nav class="nav-list" id="nav-list">
           <a href="index.html">Intro</a>
           <a href="albums.html">Albums</a>
           <a href="films.html">Films</a>
           <a href="games.html">Games</a>
           <a href="series.html">Series</a>
-        </nav>
-        <!-- main nav list -->
-        <nav class="nav-list">
-          <button class="toggle-theme"></button>
-          <a class="active" href="index.html">Intro</a>
-          <a href="albums.html">Albums</a>
-          <a href="films.html">Films</a>
-          <a href="games.html">Games</a>
-          <a href="series.html">Series</a>
-        </nav>
+        </nav>        
       </div>
     </header>
 
@@ -98,9 +88,10 @@
           things I didn't get to during the year, while also revisiting some of
           my favorite content and/or releases. Enjoy.
         </p>
-        <section class="categories-nav">
+
+        <div class="categories-nav">
           <div class="actions">
-            <button id="prev-button">
+            <a id="prev-button" href="#" class="nav-action">
               <svg
                 width="16"
                 height="16"
@@ -114,8 +105,8 @@
                 />
               </svg>
               <span>Previous</span>
-            </button>
-            <button id="next-button">
+            </a>
+            <a id="next-button" href="#" class="nav-action">
               <span>Dive in</span>
               <svg
                 width="16"
@@ -129,9 +120,10 @@
                   d="M8.53033 13.5303L14.0607 7.99995L8.53033 2.46962L7.46967 3.53027L11.1893 7.24994L2.5 7.24994L2.5 8.74994L11.1893 8.74994L7.46967 12.4696L8.53033 13.5303Z"
                 />
               </svg>
-            </button>
+            </a>
           </div>
-        </section>
+        </div>
+        
       </div>
       <img
         class="intro-shape"
@@ -139,18 +131,19 @@
         alt="intro"
       />
     </main>
-    
+
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-container">
         <ul>
           <li>
-            Dev by Akdenis Niaziev - <a href="#">&copy; Johan Ronsse</a> 2024
+            Dev by Akdenis Niaziev -
+            <a href="https://johanronsse.be/">&copy; Johan Ronsse</a> 2024
           </li>
 
           <li class="">
             Follow me on
-            <a href="#">
+            <a href="https://x.com/wolfr_2">
               <svg
                 width="12"
                 height="10"

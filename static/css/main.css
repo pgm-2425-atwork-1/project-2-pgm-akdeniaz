@@ -1,5 +1,8 @@
 /* header */
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   max-width: 140rem;
   padding: 0 1.6rem;
 }
@@ -7,125 +10,147 @@
 .nav-logo-holder {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 }
 
 .intro {
   margin-right: auto;
-  margin-top: auto;
-  margin-bottom: auto;
-}
-/* hamburger + hidden overlay */
-.hamburger {
-  margin: auto;
-  background-color: var(--contrast-light);
-  border: none;
-}
-.nav-hidden {
-  display: none;
-  background-color: black;
-  color: var(--base-light);
-  padding: 10px;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 10;
+  margin-top: 1rem;
 }
 
-.nav-hidden.visible {
-  display: block;
-}
-
-.nav-hidden a {
-  color: var(--base-light);
-  text-decoration: none;
-  display: block;
-  padding: 5px 0;
-  border-bottom: 1px solid var(--subtle-dark);
-}
-
-/* theme mode */
+/* light-dark mode */
 .theme-mode {
-  display: flex;
-  align-items: center;
-  position: relative;
   margin-left: auto;
+  border: none;
+  background: none;
+  cursor: pointer;
 }
 
 .theme-icon {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  z-index: 2;
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
-.toggle-theme {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 24px;
-  opacity: 0;
-  cursor: pointer;
-  border: none;
+/* hamburger-icon */
+.hamburger {
   background: none;
-  z-index: 3;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
-/* main nav list*/
+/* nav-menu links */
+.visible a {
+  display: block;
+  color: var(--base-light);
+  text-decoration: none;
+  padding: 1rem;
+  border-bottom: 0.1rem solid var(--subtle-dark);
+}
+
 .nav-list {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px;
+  flex-direction: column;
+  position: absolute;
+  top: 6rem;
+  left: 0;
+  background: var(--base-dark);
+  width: 100%;
+  height: 100vh;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 100;
+}
+
+.nav-list.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
 .nav-list a {
   text-decoration: none;
-  color: var(--contrast-dark);
-  margin: 0 15px;
-  position: relative;
+  color: var(--contrast-light);
+  margin: 1rem 0;
+  font-size: 1.25rem;
 }
 
 .nav-list a.active,
 .nav-list a:hover {
   font-weight: bold;
   text-decoration: underline;
-  text-underline-offset: 0.5rem;
+  text-underline-offset: 0.3125rem;
   text-decoration-color: var(--accent-light);
 }
 
-/* section buttons */
+.nav-list a:hover {
+  color: var(--accent-light);
+}
+
+/* media queries - header */
+@media (min-width: 65rem) {
+  .hamburger {
+    display: none;
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+    width: auto;
+    background: none;
+  }
+  .nav-list a {
+    margin: 0 1rem;
+    color: var(--shade-dark);
+    font-size: 1rem;
+  }
+}
+
+/* MAIN: next - prev buttons */
+.nav-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border-radius: 0.25rem;
+  transition: all 0.3s ease;
+}
+
+.nav-action:hover {
+  background-color: var(--accent-light);
+  color: var(--contrast-light);
+  transform: scale(1.05);
+}
+
+.nav-action svg {
+  width: 1rem;
+  height: 1rem;
+  display: block;
+}
+
 #prev-button,
 #next-button {
   color: var(--base-light);
   background: var(--tint-light);
   margin-top: 1rem;
-  border: none !important;
-  border-radius: 3px;
+  border: none;
+  border-radius: 0.3rem;
   padding: 0.5rem;
-}
-
-/* media queries */
-@media (min-width: 60rem) {
-  .hamburger {
-    display: none;
-  }
-}
-
-@media (max-width: 60rem) {
-  .nav-list {
-    display: none;
-  }
-}
-
-@media (min-width: 30rem) {
 }
 
 /* footer */
 .footer-container {
-  padding: 10px;
+  padding: 1rem;
 }
 
 .footer-container ul {
@@ -133,7 +158,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 20px;
+  gap: 2rem;
 }
 
 .footer-container li:last-child {

@@ -45,13 +45,13 @@
       <div class="nav-logo-holder">
         <a class="intro" href="index.html">Best of 2024</a>
         <!-- theme mode logo -->
-        <div class="theme-mode">
+        <button class="theme-mode">
           <img
             class="theme-icon"
             src="static/images/icons/sun.svg"
             alt="Theme Icon"
           />
-        </div>
+        </button>
         <!-- hamburger function + hidden overlay -->
         <div class="nav-toggle">
           <button class="hamburger" id="hamburger">
@@ -69,17 +69,8 @@
             </svg>
           </button>
         </div>
-        <nav class="nav-hidden" id="nav-hidden">
+        <nav class="nav-list" id="nav-list">
           <a href="index.html">Intro</a>
-          <a href="albums.html">Albums</a>
-          <a href="films.html">Films</a>
-          <a href="games.html">Games</a>
-          <a href="series.html">Series</a>
-        </nav>
-        <!-- main nav list -->
-        <nav class="nav-list">
-          <button class="toggle-theme"></button>
-          <a class="active" href="index.html">Intro</a>
           <a href="albums.html">Albums</a>
           <a href="films.html">Films</a>
           <a href="games.html">Games</a>
@@ -87,9 +78,10 @@
         </nav>
       </div>
     </header>
+
     <!-- MAIN -->
     <main>
-      <h2>Games</h2>
+      <h1><span>My favorite</span>games</h1>
       <div>
         <img
           src="static/images/games/Gran Turismo Sport.jpg"
@@ -139,52 +131,57 @@
           <p>Planet Zoo</p>
         </div>
       </section>
-    </main>
-    <section class="categories-nav">
-      <div class="actions">
-        <button id="prev-button">
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M6.96967 2.46973L1.43934 8.00006L6.96967 13.5304L8.03033 12.4697L4.31066 8.75006H13V7.25006H4.31066L8.03033 3.53039L6.96967 2.46973Z"
-            />
-          </svg>
-          <span>Previous: Films</span>
-        </button>
-        <button id="next-button">
-          <span>Next: Series</span>
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M8.53033 13.5303L14.0607 7.99995L8.53033 2.46962L7.46967 3.53027L11.1893 7.24994L2.5 7.24994L2.5 8.74994L11.1893 8.74994L7.46967 12.4696L8.53033 13.5303Z"
-            />
-          </svg>
-        </button>
+      <div id="games-section"></div>
+
+      <!-- PREVIOUS & NEXT BUTTONS -->
+      <div class="categories-nav">
+        <div class="actions">
+          <a id="prev-button" href="#" class="nav-action">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6.96967 2.46973L1.43934 8.00006L6.96967 13.5304L8.03033 12.4697L4.31066 8.75006H13V7.25006H4.31066L8.03033 3.53039L6.96967 2.46973Z"
+              />
+            </svg>
+            <span>Previous: Films</span>
+          </a>
+          <a id="next-button" href="#" class="nav-action">
+            <span>Next: Series</span>
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M8.53033 13.5303L14.0607 7.99995L8.53033 2.46962L7.46967 3.53027L11.1893 7.24994L2.5 7.24994L2.5 8.74994L11.1893 8.74994L7.46967 12.4696L8.53033 13.5303Z"
+              />
+            </svg>
+          </a>
+        </div>
       </div>
-    </section>
+    </main>
+
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-container">
         <ul>
           <li>
-            Dev by Akdenis Niaziev - <a href="#">&copy; Johan Ronsse</a> 2024
+            Dev by Akdenis Niaziev -
+            <a href="https://johanronsse.be/">&copy; Johan Ronsse</a> 2024
           </li>
 
           <li class="">
             Follow me on
-            <a href="#">
+            <a href="https://x.com/wolfr_2">
               <svg
                 width="12"
                 height="10"

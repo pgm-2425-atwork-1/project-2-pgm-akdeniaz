@@ -32,11 +32,15 @@ html {
 }
 
 body {
+  
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: var(--font-body);
   font-weight: 400;
   color: var(--subtle-dark);
   background: var(--base-light);
-  min-height: 100vh;
+  margin-left: 5rem;
 }
 
 body.dark-mode {
@@ -57,8 +61,14 @@ body.light-mode a {
   color: var(--contrast-dark);
 }
 
+body.dark-mode svg {
+  fill: var(--base-light);
+  align-items: center;
+}
+
 header {
-  border-bottom: 5px solid var(--subtle-dark);
+  border-bottom: 3px solid var(--subtle-dark);
+  margin-right: 5rem;
 }
 
 h1,
@@ -77,12 +87,11 @@ h2 {
   margin-top: 0.5rem;
 }
 
-h2::before {
+h1 span {
   content: "My favorite";
   display: block;
   font-size: 1.5rem;
   color: var(--tint-dark);
-  text-align: center;
 }
 
 a {
@@ -105,17 +114,18 @@ nav a:hover {
 svg {
   float: right;
   margin-left: 5px;
+  margin-top: 5px;
 }
 
 main {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 footer {
   border-top: 5px solid var(--subtle-dark);
+  margin-right: 5rem;
 }
 
 body > footer {
