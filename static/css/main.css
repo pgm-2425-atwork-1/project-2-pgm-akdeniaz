@@ -1,6 +1,5 @@
 /* header */
 .header {
-  margin: 0 auto;
   max-width: 140rem;
   padding: 0 1.6rem;
 }
@@ -24,7 +23,7 @@
 .nav-hidden {
   display: none;
   background-color: black;
-  color: white;
+  color: var(--base-light);
   padding: 10px;
   position: absolute;
   top: 60px;
@@ -39,7 +38,7 @@
 }
 
 .nav-hidden a {
-  color: white;
+  color: var(--base-light);
   text-decoration: none;
   display: block;
   padding: 5px 0;
@@ -93,12 +92,19 @@
 .nav-list a:hover {
   font-weight: bold;
   text-decoration: underline;
-  text-decoration-thickness: 2px;
+  text-underline-offset: 0.5rem;
   text-decoration-color: var(--accent-light);
 }
 
-.nav-list a:hover {
-  color: var(--accent-light);
+/* section buttons */
+#prev-button,
+#next-button {
+  color: var(--base-light);
+  background: var(--tint-light);
+  margin-top: 1rem;
+  border: none !important;
+  border-radius: 3px;
+  padding: 0.5rem;
 }
 
 /* media queries */
@@ -119,9 +125,6 @@
 
 /* footer */
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 10px;
 }
 
@@ -134,5 +137,7 @@
 }
 
 .footer-container li:last-child {
+  display: flex;
   margin-left: auto;
+  padding-right: 1rem;
 }

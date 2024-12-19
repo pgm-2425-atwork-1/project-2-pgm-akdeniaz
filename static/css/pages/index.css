@@ -1,16 +1,13 @@
-.btn-container {
-  border-radius: 10px transparent;
-}
-.main-btn {
-  background-color: var(--subtle-dark);
-  color: white;
+.main-content{
+width: 50%;
 }
 
-.arrow-right {
-  fill: white;
+.intro-shape{
+  display: flex;
+  margin-left: auto;
 }
 
-@media (max-width: 60rem) {
+@media (max-width: 65rem) {
   .intro-shape {
     display: none;
   }
