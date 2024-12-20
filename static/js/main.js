@@ -1,3 +1,46 @@
+const currentPath = window.location.pathname.split("/").pop();
+
+const navLinks = document.querySelectorAll(".nav-list a");
+
+navLinks.forEach((link) => {
+  const linkPath = link.getAttribute("href");
+
+  if (linkPath === currentPath) {
+    link.classList.add("active");
+  } else {
+    link.classList.remove("active");
+  }
+});
+
+// Toggle mobile nav visibility
+const hamburger = document.getElementById("hamburger");
+const nav = document.getElementById("nav-list");
+
+// Toggle the nav visibility on hamburger click
+hamburger.addEventListener("click", () => {
+  nav.classList.toggle("visible");
+});
+
+// Close the mobile nav when clicking outside or resizing to desktop
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 1040) {
+    nav.classList.remove("visible");
+    nav.style.transition = "none";
+  } else {
+    nav.style.transition = "opacity 0.3s ease";
+  }
+});
+
+// Ensure links work for the visible menu
+navLinks.forEach((link) =>
+  link.addEventListener("click", () => {
+    if (window.innerWidth < 1040) {
+      nav.classList.remove("visible");
+    }
+  })
+);
+
+
 // Toggle dark/light mode on click
 document.querySelector(".theme-icon").addEventListener("click", () => {
   const body = document.body;
@@ -43,41 +86,132 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// Toggle mobile nav visibility
-document.getElementById("hamburger").addEventListener("click", () => {
-  const navHidden = document.getElementById("nav-hidden");
-  navHidden.classList.toggle("visible");
-});
-
 // PREV <=> NEXT BUTTONS
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = Array.from(document.querySelectorAll(".nav-list a"));
   const currentPage = window.location.pathname.split("/").pop();
-  
-  // Find the current page index
-  const currentIndex = navLinks.findIndex((link) => link.getAttribute("href") === currentPage);
 
-  // Get the previous and next pages
-  const prevPage = currentIndex > 0 ? navLinks[currentIndex - 1].getAttribute("href") : null;
-  const nextPage = currentIndex < navLinks.length - 1 ? navLinks[currentIndex + 1].getAttribute("href") : null;
+  const currentIndex = navLinks.findIndex(
+    (link) => link.getAttribute("href") === currentPage
+  );
 
-  // Update the buttons
+  const prevPage =
+    currentIndex > 0 ? navLinks[currentIndex - 1].getAttribute("href") : null;
+  const nextPage =
+    currentIndex < navLinks.length - 1
+      ? navLinks[currentIndex + 1].getAttribute("href")
+      : null;
+
   const prevButton = document.getElementById("prev-button");
   const nextButton = document.getElementById("next-button");
 
   if (prevPage) {
-    prevButton.addEventListener("click", () => {
-      window.location.href = prevPage;
-    });
+    prevButton.href = prevPage;
   } else {
-    prevButton.style.display = "none";
+    prevButton.style.display = "none"; // Hide if no previous page
   }
 
   if (nextPage) {
-    nextButton.addEventListener("click", () => {
-      window.location.href = nextPage;
-    });
+    nextButton.href = nextPage;
   } else {
-    nextButton.style.display = "none";
+    nextButton.style.display = "none"; // Hide if no next page
   }
 });
+
+
+// URLs for JSON data
+const albumsUrl = "https://www.pgm.gent/data/bestof2024/albums.json";
+const filmsUrl = "https://www.pgm.gent/data/bestof2024/movies.json";
+const gamesUrl = "https://www.pgm.gent/data/bestof2024/games.json";
+const seriesUrl = "https://www.pgm.gent/data/bestof2024/series.json";
+
+// Fetch and render content based on page
+if (document.querySelector(".main-albums")) {
+  fetchAndRenderContent(albumsUrl, "album-section");
+}
+if (document.querySelector(".main-films")) {
+  fetchAndRenderContent(filmsUrl, "films-section");
+}
+if (document.querySelector(".main-games")) {
+  fetchAndRenderContent(gamesUrl, "games-section");
+}
+if (document.querySelector(".main-series")) {
+  fetchAndRenderContent(seriesUrl, "series-section");
+}
+
+
+// Function to format dates
+function formatDate(dateString) {
+  const date = new Date(dateString);
+  const options = { month: "long", day: "2-digit", year: "numeric" };
+  return date.toLocaleDateString(undefined, options);
+}
+
+// Function to create a media article
+function createMediaArticle(media) {
+  const article = document.createElement("article");
+
+  const img = document.createElement("img");
+  img.src = media.image;
+  img.alt = media.title;
+
+  const h2 = document.createElement("h2");
+  h2.textContent = media.title;
+
+  const description = document.createElement("p");
+  description.innerHTML =
+    media.short_description || "No description available.";
+
+  const linksContainer = document.createElement("div");
+  if (media.trailer_link) {
+    const trailerLink = document.createElement("a");
+    trailerLink.href = media.trailer_link;
+    trailerLink.textContent = "Trailer";
+    trailerLink.target = "_blank";
+    linksContainer.appendChild(trailerLink);
+  }
+
+  if (media.imdb_link) {
+    const imdbLink = document.createElement("a");
+    imdbLink.href = media.imdb_link;
+    imdbLink.textContent = "IMDB";
+    imdbLink.target = "_blank";
+    linksContainer.appendChild(imdbLink);
+  }
+
+  if (media.release_date) {
+    const releaseDate = document.createElement("p");
+    releaseDate.textContent = formatDate(media.release_date);
+    linksContainer.appendChild(releaseDate);
+  }
+
+  article.appendChild(img);
+  article.appendChild(h2);
+  article.appendChild(description);
+  article.appendChild(linksContainer);
+
+  return article;
+}
+
+// Function to render media into a container
+function renderMedia(containerId, mediaArray) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+
+  mediaArray.forEach((media) => {
+    const article = createMediaArticle(media);
+    container.appendChild(article);
+  });
+}
+
+// Function to fetch and render content dynamically
+function fetchAndRenderContent(url, containerId) {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      renderMedia(containerId, data);
+    })
+    .catch((error) =>
+      console.error(`Error fetching content from ${url}:`, error)
+    );
+}

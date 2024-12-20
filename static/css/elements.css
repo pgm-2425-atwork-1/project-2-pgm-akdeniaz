@@ -32,9 +32,9 @@ html {
 }
 
 body {
-  
   display: flex;
   flex-direction: column;
+  align-content: space-between;
   min-height: 100vh;
   font-family: var(--font-body);
   font-weight: 400;
@@ -113,8 +113,6 @@ nav a:hover {
 
 svg {
   float: right;
-  margin-left: 5px;
-  margin-top: 5px;
 }
 
 main {
