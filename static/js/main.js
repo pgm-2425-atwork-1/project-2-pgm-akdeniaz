@@ -40,7 +40,6 @@ navLinks.forEach((link) =>
   })
 );
 
-
 // Toggle dark/light mode on click
 document.querySelector(".theme-icon").addEventListener("click", () => {
   const body = document.body;
@@ -108,16 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
   if (prevPage) {
     prevButton.href = prevPage;
   } else {
-    prevButton.style.display = "none"; // Hide if no previous page
+    prevButton.style.display = "none";
   }
 
   if (nextPage) {
     nextButton.href = nextPage;
   } else {
-    nextButton.style.display = "none"; // Hide if no next page
+    nextButton.style.display = "none";
   }
 });
-
 
 // URLs for JSON data
 const albumsUrl = "https://www.pgm.gent/data/bestof2024/albums.json";
@@ -139,12 +137,34 @@ if (document.querySelector(".main-series")) {
   fetchAndRenderContent(seriesUrl, "series-section");
 }
 
-
 // Function to format dates
 function formatDate(dateString) {
   const date = new Date(dateString);
   const options = { month: "long", day: "2-digit", year: "numeric" };
   return date.toLocaleDateString(undefined, options);
+}
+
+// Function to fetch and render content dynamically
+function fetchAndRenderContent(url, containerId) {
+  fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      renderMedia(containerId, data);
+    })
+    .catch((error) =>
+      console.error(`Error fetching content from ${url}:`, error)
+    );
+}
+
+// Function to render media into a container
+function renderMedia(containerId, mediaArray) {
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+
+  mediaArray.forEach((media) => {
+    const article = createMediaArticle(media);
+    container.appendChild(article);
+  });
 }
 
 // Function to create a media article
@@ -160,7 +180,7 @@ function createMediaArticle(media) {
 
   const description = document.createElement("p");
   description.innerHTML =
-    media.short_description || "No description available.";
+    media.short_description || "Geen beschrijving beschikbaar.";
 
   const linksContainer = document.createElement("div");
   if (media.trailer_link) {
@@ -191,27 +211,4 @@ function createMediaArticle(media) {
   article.appendChild(linksContainer);
 
   return article;
-}
-
-// Function to render media into a container
-function renderMedia(containerId, mediaArray) {
-  const container = document.getElementById(containerId);
-  container.innerHTML = "";
-
-  mediaArray.forEach((media) => {
-    const article = createMediaArticle(media);
-    container.appendChild(article);
-  });
-}
-
-// Function to fetch and render content dynamically
-function fetchAndRenderContent(url, containerId) {
-  fetch(url)
-    .then((response) => response.json())
-    .then((data) => {
-      renderMedia(containerId, data);
-    })
-    .catch((error) =>
-      console.error(`Error fetching content from ${url}:`, error)
-    );
 }
