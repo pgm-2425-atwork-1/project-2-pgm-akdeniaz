@@ -1,0 +1,38 @@
+/* footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+  border-top: var(--accent-light) 1px solid;
+  width: 100%;
+  padding: 2rem 1rem;
+
+  p {
+    font-size: 1.5rem;
+  }
+
+  @media (min-width: 48rem) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.footer__copyright a {
+  text-decoration: none;
+  color: #000;
+}
+
+.footer__social {
+  display: flex;
+}
+
+.footer__social img {
+  margin-left: 1rem;
+  max-width: 2rem;
+  height: auto;
+  cursor: pointer;
+}
+/* Dark mode styles */
+/* @media (prefers-color-scheme: dark) {
+    .footer__copyright a {
+      color: #fff;
+    }
+  } */
