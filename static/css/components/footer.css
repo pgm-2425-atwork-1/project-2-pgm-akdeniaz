@@ -7,12 +7,12 @@
 
   p {
     font-size: 0.8rem;
-    color: var(--tint-dark);
+    color: var(--subtle-dark);
   }
 
-  a {
-    color: var(--tint-dark);
-    text-decoration: underline var(--tint-dark);
+  .footer__copyright a {
+    color: var(--subtle-dark) !important;
+    text-decoration: underline var(--subtle-dark);
   }
 
   @media (min-width: 48rem) {
@@ -38,6 +38,15 @@ body.dark-mode {
 
   .footer__social img {
     filter: invert(0.7);
+  }
+
+  p {
+    color: var(--tint-dark);
+  }
+
+  .footer__copyright a {
+    color: var(--tint-dark) !important;
+    text-decoration: underline var(--tint-dark);
   }
 }
 

@@ -28,8 +28,14 @@ main {
     margin: 0 1.5rem 0 1.5rem;
   }
 
-  .intro-shape{
+  .intro-shape {
     margin: right;
     padding: 0;
+  }
+}
+
+body.dark-mode {
+  .paragraph {
+    color: var(--base-light);
   }
 }

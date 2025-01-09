@@ -27,7 +27,6 @@
 
 a:hover {
   color: var(--contrast-light);
-  transform: scale(1.05);
 }
 
 .nav-action svg {
