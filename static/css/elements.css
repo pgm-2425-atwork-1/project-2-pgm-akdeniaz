@@ -27,7 +27,7 @@ html {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 60%;
+  font-size: 100%;
   font: inherit;
 }
 
@@ -40,7 +40,6 @@ body {
   font-weight: 400;
   color: var(--subtle-dark);
   background: var(--base-light);
-  margin-left: 5rem;
 }
 
 body.dark-mode {
@@ -48,24 +47,10 @@ body.dark-mode {
   color: var(--contrast-dark);
 }
 
-body.dark-mode a {
-  color: var(--base-light);
-}
-
-body.light-mode {
-  background-color: var(--base-light);
-  color: var(--subtle-dark);
-}
-
-body.light-mode a {
-  color: var(--contrast-dark);
-}
-
 body.dark-mode svg {
   fill: var(--base-light);
   align-items: center;
 }
-
 
 h1,
 h2,
@@ -76,11 +61,15 @@ h3 {
 
 h1 {
   font-size: 6rem;
+  text-transform: capitalize;
 }
 
 h2 {
   font-size: 5rem;
   margin-top: 0.5rem;
+  @media (max-width: 28.125rem) {
+    font-size: 3rem;
+  }
 }
 
 h1 span {
@@ -88,6 +77,7 @@ h1 span {
   display: block;
   font-size: 1.5rem;
   color: var(--tint-dark);
+  text-transform: none;
 }
 
 a {
@@ -107,12 +97,6 @@ nav a:hover {
   text-underline-offset: 5px var(--accent-light);
 }
 
-svg {
-  float: right;
-}
-
-main {
-  display: flex;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+body > footer {
+  margin-top: auto;
 }

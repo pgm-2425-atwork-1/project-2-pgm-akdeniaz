@@ -1,14 +1,35 @@
-.main-content{
-width: 50%;
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
 }
 
-.intro-shape{
+.main-content {
+  width: 100%;
+  max-width: 35.5rem;
+}
+
+.intro-shape {
   display: flex;
   margin-left: auto;
 }
 
-@media (max-width: 65rem) {
+@media (max-width: 70rem) {
   .intro-shape {
     display: none;
+  }
+}
+
+@media (min-width: 70rem) {
+  .main-content {
+    padding: 5rem 1rem 5rem 1rem;
+    margin: 0 1.5rem 0 1.5rem;
+  }
+
+  .intro-shape{
+    margin: right;
+    padding: 0;
   }
 }

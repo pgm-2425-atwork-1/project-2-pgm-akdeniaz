@@ -1,93 +1,18 @@
 /* light-dark mode */
+.theme-mode {
+  margin-left: auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
 .theme-icon {
   width: 2.4rem;
   height: 2.4rem;
 }
 
-/* hamburger-icon */
-.hamburger {
-  background: none;
-  border: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-}
-
-/* nav-menu links */
-.nav-list.visible a {
-  display: block;
-  color: var(--base-light);
-  text-decoration: none;
-  padding: 1rem;
-  border-bottom: 0.1rem solid var(--subtle-dark);
-}
-
-.nav-list {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  position: absolute;
-  top: 6rem;
-  left: 0;
-  background: var(--base-dark);
-  width: 100%;
-  height: 100vh;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 100;
-}
-
-.nav-list.visible {
-  opacity: 1;
-  visibility: visible;
-}
-
-.nav-list a {
-  text-decoration: none;
-  color: var(--contrast-light);
-  margin: 1rem 0;
-  font-size: 1.25rem;
-}
-
-.nav-list a.active,
-.nav-list a:hover {
-  font-weight: bold;
-  text-decoration: underline;
-  text-underline-offset: 0.3125rem;
-  text-decoration-color: var(--accent-light);
-}
-
-.nav-list a:hover {
-  color: var(--accent-light);
-}
-
-/* media queries - header */
-@media (min-width: 65rem) {
-  .hamburger {
-    display: none;
-  }
-  .nav-list {
-    display: flex;
-    flex-direction: row;
-    position: static;
-    visibility: visible;
-    opacity: 1;
-    height: auto;
-    width: auto;
-    background: none;
-  }
-  .nav-list a {
-    margin: 0 1rem;
-    color: var(--shade-dark);
-    font-size: 1rem;
-  }
-}
-
-
 /* MAIN: next - prev buttons */
-.nav-control {
+.nav-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -100,25 +25,30 @@
   transition: all 0.3s ease;
 }
 
-.nav-control:hover {
-  background-color: var(--accent-light);
+a:hover {
   color: var(--contrast-light);
   transform: scale(1.05);
 }
 
-.nav-control svg {
+.nav-action svg {
   width: 1rem;
   height: 1rem;
   display: block;
 }
 
-#prev-btn,
-#next-btn {
-  color: var(--base-light);
-  background: var(--tint-light);
+#prev-button,
+#next-button {
+  background-color: var(--accent-light);
+  color: black;
+
   margin-top: 1rem;
   border: none;
   border-radius: 0.3rem;
   padding: 0.5rem;
 }
 
+.dark-mode #prev-button,
+.dark-mode #next-button {
+  color: var(--base-light);
+  background: var(--tint-light);
+}

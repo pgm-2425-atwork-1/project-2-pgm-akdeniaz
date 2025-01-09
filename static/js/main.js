@@ -1,5 +1,5 @@
+// .active a
 const currentPath = window.location.pathname.split("/").pop();
-
 const navLinks = document.querySelectorAll(".nav-list a");
 
 navLinks.forEach((link) => {
@@ -20,25 +20,6 @@ const nav = document.getElementById("nav-list");
 hamburger.addEventListener("click", () => {
   nav.classList.toggle("visible");
 });
-
-// Close the mobile nav when clicking outside or resizing to desktop
-window.addEventListener("resize", () => {
-  if (window.innerWidth >= 1040) {
-    nav.classList.remove("visible");
-    nav.style.transition = "none";
-  } else {
-    nav.style.transition = "opacity 0.3s ease";
-  }
-});
-
-// Ensure links work for the visible menu
-navLinks.forEach((link) =>
-  link.addEventListener("click", () => {
-    if (window.innerWidth < 1040) {
-      nav.classList.remove("visible");
-    }
-  })
-);
 
 // Toggle dark/light mode on click
 document.querySelector(".theme-icon").addEventListener("click", () => {
@@ -123,7 +104,7 @@ const filmsUrl = "https://www.pgm.gent/data/bestof2024/movies.json";
 const gamesUrl = "https://www.pgm.gent/data/bestof2024/games.json";
 const seriesUrl = "https://www.pgm.gent/data/bestof2024/series.json";
 
-// Fetch and render content based on page
+// Fetch and render content from external link
 if (document.querySelector(".main-albums")) {
   fetchAndRenderContent(albumsUrl, "album-section");
 }
@@ -137,14 +118,14 @@ if (document.querySelector(".main-series")) {
   fetchAndRenderContent(seriesUrl, "series-section");
 }
 
-// Function to format dates
+// format dates
 function formatDate(dateString) {
   const date = new Date(dateString);
   const options = { month: "long", day: "2-digit", year: "numeric" };
   return date.toLocaleDateString(undefined, options);
 }
 
-// Function to fetch and render content dynamically
+// fetch and render content
 function fetchAndRenderContent(url, containerId) {
   fetch(url)
     .then((response) => response.json())
@@ -156,7 +137,7 @@ function fetchAndRenderContent(url, containerId) {
     );
 }
 
-// Function to render media into a container
+// Function to render media
 function renderMedia(containerId, mediaArray) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -179,8 +160,11 @@ function createMediaArticle(media) {
   h2.textContent = media.title;
 
   const description = document.createElement("p");
-  description.innerHTML =
-    media.short_description || "Geen beschrijving beschikbaar.";
+  description.innerHTML = media.short_description || "";
+
+  const genre = document.createElement("p");
+  genre.className = "genre";
+  genre.innerHTML = media.genre || "";
 
   const linksContainer = document.createElement("div");
   if (media.trailer_link) {
@@ -208,6 +192,7 @@ function createMediaArticle(media) {
   article.appendChild(img);
   article.appendChild(h2);
   article.appendChild(description);
+  article.appendChild(genre);
   article.appendChild(linksContainer);
 
   return article;
