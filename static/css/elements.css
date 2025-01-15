@@ -98,6 +98,14 @@ nav a:hover {
   text-underline-offset: 5px var(--accent-light);
 }
 
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
 body > footer {
   flex-shrink: 0;
 }

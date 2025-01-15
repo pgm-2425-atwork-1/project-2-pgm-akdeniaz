@@ -138,55 +138,61 @@ function renderMedia(containerId, mediaArray) {
 
 // Function to create a media article
 function createMediaArticle(media) {
+  const currentPage = window.location.pathname.split("/").pop();
+  const page = currentPage.replace(".html", "");
+
   const article = document.createElement("article");
 
   const img = document.createElement("img");
   img.src = media.image;
   img.alt = media.title;
+  img.className = `${page}__img`;
 
   const h2 = document.createElement("h2");
   h2.textContent = media.title;
+  h2.className = `${page}__title`;
 
   article.appendChild(img);
   article.appendChild(h2);
 
-  const currentPage = window.location.pathname.split("/").pop();
-
-  if (currentPage === "albums.html") {
+  if (page === "albums") {
     if (media.release_date) {
       const releaseDate = document.createElement("p");
       releaseDate.textContent = formatDate(media.release_date);
+      releaseDate.className = `${page}__release-date`;
       article.appendChild(releaseDate);
     }
 
     if (media.genre && Array.isArray(media.genre)) {
       const genreContainer = document.createElement("div");
-      genreContainer.className = "genre-container";
+      genreContainer.className = `${page}__genre-container`;
 
       media.genre.forEach((g) => {
         const genreTag = document.createElement("span");
-        genreTag.className = "genre";
+        genreTag.className = `${page}__genre`;
         genreTag.textContent = g;
         genreContainer.appendChild(genreTag);
       });
 
       article.appendChild(genreContainer);
     }
-  } else if (currentPage === "films.html") {
+  } else if (page === "films") {
     if (media.short_description) {
       const description = document.createElement("p");
       description.innerHTML = media.short_description;
+      description.className = `${page}__description`;
       article.appendChild(description);
     }
 
     const linksContainer = document.createElement("div");
-    linksContainer.className = "links-container";
+    linksContainer.className = `${page}__links-container`;
 
     if (media.trailer_link) {
       const trailerLink = document.createElement("a");
       trailerLink.href = media.trailer_link;
       trailerLink.textContent = "Trailer";
       trailerLink.target = "_blank";
+      trailerLink.className = `${page}__trailer-link`;
       linksContainer.appendChild(trailerLink);
     }
 
@@ -195,31 +201,35 @@ function createMediaArticle(media) {
       imdbLink.href = media.imdb_link;
       imdbLink.textContent = "IMDB";
       imdbLink.target = "_blank";
+      imdbLink.className = `${page}__imdb-link`;
       linksContainer.appendChild(imdbLink);
     }
 
     article.appendChild(linksContainer);
-  } else if (currentPage === "series.html") {
+  } else if (page === "series") {
     if (media.platform) {
       const platform = document.createElement("p");
       platform.textContent = `${media.platform}`;
+      platform.className = `${page}__platform`;
       article.appendChild(platform);
     }
 
     if (media.short_description) {
       const description = document.createElement("p");
       description.innerHTML = media.short_description;
+      description.className = `${page}__short_description`;
       article.appendChild(description);
     }
 
     const linksContainer = document.createElement("div");
-    linksContainer.className = "links-container";
+    linksContainer.className = `${page}__links-container`;
 
     if (media.trailer_link) {
       const trailerLink = document.createElement("a");
       trailerLink.href = media.trailer_link;
       trailerLink.textContent = "Trailer";
       trailerLink.target = "_blank";
+      trailerLink.className = `${page}__trailer-link`;
       linksContainer.appendChild(trailerLink);
     }
 
@@ -228,6 +238,7 @@ function createMediaArticle(media) {
       imdbLink.href = media.imdb_link;
       imdbLink.textContent = "IMDB";
       imdbLink.target = "_blank";
+      imdbLink.className = `${ page}__imdb-link`;
       linksContainer.appendChild(imdbLink);
     }
 
