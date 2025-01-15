@@ -1,9 +1,33 @@
+/* Slideshow Container */
 .main-games {
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
+/* Navigation Buttons */
+.slideshow-nav {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.slideshow-nav button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid #ccc;
+  background-color: transparent;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.slideshow-nav button.active {
+  background-color: #007bff; /* Blue glow color */
+  border-color: #007bff;
+}
 /* Fullscreen Overlay */
 .fullscreen-overlay {
   display: none;
@@ -38,12 +62,12 @@
 .fullscreen-title {
   color: grey;
   font-size: 1.5rem;
-  position: absolute; 
+  position: absolute;
   bottom: -30px;
   left: 0;
   margin: 0;
-  padding: 5px 10px; 
-  background-color: rgba(0, 0, 0, 0.6); 
+  padding: 5px 10px;
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 5px;
 }
 

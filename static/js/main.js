@@ -211,7 +211,32 @@ function createMediaArticle(media) {
       const platform = document.createElement("p");
       platform.textContent = `${media.platform}`;
       platform.className = `${page}__platform`;
-      article.appendChild(platform);
+
+      const platformLink = document.createElement("a");
+      platformLink.href = getPlatformUrl(media.platform);
+      platformLink.target = "_blank";
+      platformLink.appendChild(platform);
+
+      article.appendChild(platformLink);
+    }
+
+    function getPlatformUrl(platform) {
+      switch (platform.toLowerCase()) {
+        case "netflix":
+          return "https://www.netflix.com/";
+        case "hbo":
+          return "https://www.hbo.com/";
+        case "hbo max":
+          return "https://hbo.max.com/";
+        case "disney+":
+          return "https://www.disneyplus.com/";
+        case "prime":
+          return "https://www.primevideo.com/";
+        case "apple tv+":
+          return "https://tv.apple.com/";
+        default:
+          return "#";
+      }
     }
 
     if (media.short_description) {

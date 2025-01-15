@@ -26,6 +26,7 @@
 }
 
 .footer__social img {
+  width: 1rem;
   margin-left: 1rem;
   height: auto;
   cursor: pointer;
