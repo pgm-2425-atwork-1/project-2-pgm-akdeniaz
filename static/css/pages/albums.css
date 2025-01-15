@@ -9,15 +9,19 @@
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 2rem;
+  }
+
+  .genre-container {
+    display: flex;
+    gap: 0.5rem;
   }
 
   .genre {
-    background: var(--accent-light);
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
-    border: 1px solid var(--accent-dark);
-    border-radius: 4px;
+    background-color: hsla(231, 66%, 82%, 0.6);
+    border-radius: 2rem;
+    padding: 1rem;
+    font-size: 0.5rem;
   }
 
   a {
@@ -29,8 +33,11 @@
   }
 
   article {
-    padding: 1rem;
-    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
   }
 
   div {
@@ -43,14 +50,18 @@
   line-height: 1;
 }
 
-.album-selection {
-  display: grid;
+.album-section {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (min-width: 48rem) {
-  section#album-section {
+  .album-section {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-gap: 10px;
+    grid-template-columns: 33% 33% 33%;
+    gap: 5px;
   }
 }

@@ -44,6 +44,15 @@ body.dark-mode svg {
   align-items: center;
 }
 
+main {
+  display: flex;
+  flex: 1 0 auto;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  margin: 0;
+}
+
 h1,
 h2,
 h3 {

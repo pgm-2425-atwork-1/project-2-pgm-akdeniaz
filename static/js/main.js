@@ -68,33 +68,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // PREV <=> NEXT BUTTONS
 document.addEventListener("DOMContentLoaded", () => {
-  const navLinks = Array.from(document.querySelectorAll(".nav-list a"));
-  const currentPage = window.location.pathname.split("/").pop();
+  const prevButton = document.querySelector(".navigation__prev");
+  const nextButton = document.querySelector(".navigation__next");
 
-  const currentIndex = navLinks.findIndex(
-    (link) => link.getAttribute("href") === currentPage
-  );
-
-  const prevPage =
-    currentIndex > 0 ? navLinks[currentIndex - 1].getAttribute("href") : null;
-  const nextPage =
-    currentIndex < navLinks.length - 1
-      ? navLinks[currentIndex + 1].getAttribute("href")
-      : null;
-
-  const prevButton = document.getElementById("prev-button");
-  const nextButton = document.getElementById("next-button");
-
-  if (prevPage) {
-    prevButton.href = prevPage;
+  // prev-button
+  if (prevButton) {
+    prevButton.style.display = "inline-flex";
   } else {
-    prevButton.style.display = "none";
+    console.warn("Previous button not found.");
   }
 
-  if (nextPage) {
-    nextButton.href = nextPage;
+  // next-button
+  if (nextButton) {
+    nextButton.style.display = "inline-flex";
   } else {
-    nextButton.style.display = "none";
+    console.warn("Next button not found.");
   }
 });
 
@@ -162,9 +150,17 @@ function createMediaArticle(media) {
   const description = document.createElement("p");
   description.innerHTML = media.short_description || "";
 
-  const genre = document.createElement("p");
-  genre.className = "genre";
-  genre.innerHTML = media.genre || "";
+  const genreContainer = document.createElement("div");
+  genreContainer.className = "genre-container";
+
+  if (media.genre && Array.isArray(media.genre)) {
+    media.genre.forEach((g) => {
+      const genreTag = document.createElement("span");
+      genreTag.className = "genre";
+      genreTag.textContent = g;
+      genreContainer.appendChild(genreTag);
+    });
+  }
 
   const linksContainer = document.createElement("div");
   if (media.trailer_link) {
@@ -192,8 +188,61 @@ function createMediaArticle(media) {
   article.appendChild(img);
   article.appendChild(h2);
   article.appendChild(description);
-  article.appendChild(genre);
+  article.appendChild(genreContainer);
   article.appendChild(linksContainer);
 
   return article;
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Slideshow functionaliteit
+  const slideshowImages = document.querySelectorAll(".main-games > div img");
+  const prevButton = document.getElementById("prev-button");
+  const nextButton = document.getElementById("next-button");
+  let currentIndex = 0;
+
+  const updateSlideshow = () => {
+    slideshowImages.forEach((img, index) => {
+      img.style.display = index === currentIndex ? "block" : "none";
+    });
+    prevButton.style.display = currentIndex === 0 ? "none" : "inline-flex";
+    nextButton.style.display =
+      currentIndex === slideshowImages.length - 1 ? "none" : "inline-flex";
+  };
+
+  prevButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (currentIndex > 0) {
+      currentIndex--;
+      updateSlideshow();
+    }
+  });
+
+  nextButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (currentIndex < slideshowImages.length - 1) {
+      currentIndex++;
+      updateSlideshow();
+    }
+  });
+
+  updateSlideshow();
+
+  // Fullscreen functionaliteit
+  const honorableImages = document.querySelectorAll(
+    "section:nth-of-type(2) div img"
+  );
+
+  honorableImages.forEach((img) => {
+    img.style.cursor = "pointer";
+    img.addEventListener("click", () => {
+      if (img.requestFullscreen) {
+        img.requestFullscreen();
+      } else if (img.webkitRequestFullscreen) {
+        img.webkitRequestFullscreen();
+      } else if (img.msRequestFullscreen) {
+        img.msRequestFullscreen();
+      }
+    });
+  });
+});
