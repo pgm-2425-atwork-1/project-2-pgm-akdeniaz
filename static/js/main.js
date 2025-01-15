@@ -66,23 +66,23 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// PREV <=> NEXT BUTTONS
+// PREV <=> NEXT LINKS
 document.addEventListener("DOMContentLoaded", () => {
-  const prevButton = document.querySelector(".navigation__prev");
-  const nextButton = document.querySelector(".navigation__next");
+  const prevLink = document.querySelector(".navigation__prev");
+  const nextLink = document.querySelector(".navigation__next");
 
-  // prev-button
-  if (prevButton) {
-    prevButton.style.display = "inline-flex";
+  // prev-link
+  if (prevLink) {
+    prevLink.style.display = "inline-flex";
   } else {
-    console.warn("Previous button not found.");
+    console.warn("Previous link not found.");
   }
 
-  // next-button
-  if (nextButton) {
-    nextButton.style.display = "inline-flex";
+  // next-link
+  if (nextLink) {
+    nextLink.style.display = "inline-flex";
   } else {
-    console.warn("Next button not found.");
+    console.warn("Next link not found.");
   }
 });
 
@@ -238,7 +238,7 @@ function createMediaArticle(media) {
       imdbLink.href = media.imdb_link;
       imdbLink.textContent = "IMDB";
       imdbLink.target = "_blank";
-      imdbLink.className = `${ page}__imdb-link`;
+      imdbLink.className = `${page}__imdb-link`;
       linksContainer.appendChild(imdbLink);
     }
 
@@ -248,8 +248,8 @@ function createMediaArticle(media) {
   return article;
 }
 
+// slideshow
 document.addEventListener("DOMContentLoaded", () => {
-  // Slideshow functionaliteit
   const slideshowImages = document.querySelectorAll(".main-games > div img");
   const prevButton = document.getElementById("prev-button");
   const nextButton = document.getElementById("next-button");
@@ -281,22 +281,57 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   updateSlideshow();
+});
 
-  // Fullscreen functionaliteit
-  const honorableImages = document.querySelectorAll(
-    "section:nth-of-type(2) div img"
-  );
+// Fullscreen function
+document.addEventListener("DOMContentLoaded", () => {
+  const gameImages = document.querySelectorAll(".main-games img");
+  const fullscreenOverlay = document.getElementById("fullscreen-overlay");
+  const fullscreenImage = document.getElementById("fullscreen-image");
+  const fullscreenTitle = document.getElementById("fullscreen-title");
+  const closeFullscreen = document.getElementById("close-fullscreen");
+  const prevImageButton = document.getElementById("prev-image");
+  const nextImageButton = document.getElementById("next-image");
 
-  honorableImages.forEach((img) => {
+  let currentImageIndex = 0;
+
+  // Open fullscreen overlay
+  gameImages.forEach((img, index) => {
     img.style.cursor = "pointer";
     img.addEventListener("click", () => {
-      if (img.requestFullscreen) {
-        img.requestFullscreen();
-      } else if (img.webkitRequestFullscreen) {
-        img.webkitRequestFullscreen();
-      } else if (img.msRequestFullscreen) {
-        img.msRequestFullscreen();
-      }
+      currentImageIndex = index;
+      updateFullscreenContent();
+      fullscreenOverlay.classList.add("active");
     });
   });
+
+  // Close fullscreen overlay
+  closeFullscreen.addEventListener("click", () => {
+    fullscreenOverlay.classList.remove("active");
+  });
+
+  // Navigate to previous image
+  prevImageButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (currentImageIndex > 0) {
+      currentImageIndex--;
+      updateFullscreenContent();
+    }
+  });
+
+  // Navigate to next image
+  nextImageButton.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (currentImageIndex < gameImages.length - 1) {
+      currentImageIndex++;
+      updateFullscreenContent();
+    }
+  });
+
+  // Function to update the fullscreen content
+  function updateFullscreenContent() {
+    const currentImage = gameImages[currentImageIndex];
+    fullscreenImage.src = currentImage.src;
+    fullscreenTitle.textContent = currentImage.nextElementSibling.textContent; // Use the <p> tag content as the title
+  }
 });
