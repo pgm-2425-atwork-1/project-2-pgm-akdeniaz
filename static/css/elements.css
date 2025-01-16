@@ -46,6 +46,7 @@ body.dark-mode svg {
 
 main {
   display: flex;
+  flex-direction: column;
   flex: 1 0 auto;
   justify-content: center;
   align-items: center;
@@ -81,8 +82,13 @@ h1 span {
   text-transform: none;
 }
 
-img{
+img {
   width: 31.5rem;
+}
+
+ul,
+ol {
+  list-style: none;
 }
 
 a {

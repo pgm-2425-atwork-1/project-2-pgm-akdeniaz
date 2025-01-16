@@ -1,3 +1,10 @@
+/* Tijdloze */
+.timeless {
+  padding: 1rem;
+  background-color: var(--subtle-light);
+  border-radius: 5px;
+}
+
 /* light-dark mode */
 .theme-mode {
   margin-left: auto;

@@ -74,15 +74,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // prev-link
   if (prevLink) {
     prevLink.style.display = "inline-flex";
-  } else {
-    console.warn("Previous link not found.");
   }
-
   // next-link
   if (nextLink) {
     nextLink.style.display = "inline-flex";
-  } else {
-    console.warn("Next link not found.");
   }
 });
 
@@ -265,7 +260,7 @@ function createMediaArticle(media) {
 
   return article;
 
-  // Helper function for platform URLs
+  // Platform URLs
   function getPlatformUrl(platform) {
     switch (platform.toLowerCase()) {
       case "netflix":
