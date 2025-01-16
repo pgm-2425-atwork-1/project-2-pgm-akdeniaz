@@ -1,9 +1,35 @@
 /* Slideshow Container */
 .main-games {
-  position: relative;
-  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+}
+
+.main-games img {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+}
+
+.honorable-mention {
+  flex: 1 1 calc(33.333% - 16px);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 8px;
+  text-align: center;
+}
+
+.honorable-mention__img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.honorable-mention__title {
+  margin-top: 8px;
+  font-size: 0.5rem;
+  color: #333;
 }
 
 /* Navigation Buttons */
@@ -13,21 +39,38 @@
   margin-top: 10px;
 }
 
-.slideshow-nav button {
-  width: 12px;
-  height: 12px;
+#prev-button,
+#next-button {
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 2px solid #ccc;
   background-color: transparent;
-  margin: 0 5px;
+  margin: 0 10px;
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.slideshow-nav button.active {
-  background-color: #007bff; /* Blue glow color */
-  border-color: #007bff;
+#prev-button:hover,
+#next-button:hover {
+  background-color: rgba(200, 200, 200, 0.3);
 }
+
+#prev-button.active,
+#next-button.active {
+  border-color: #666;
+  background-color: #eee;
+}
+
+/* Hide nav buttons when not active */
+#prev-button.hidden,
+#next-button.hidden {
+  visibility: hidden;
+}
+
 /* Fullscreen Overlay */
 .fullscreen-overlay {
   display: none;
@@ -36,7 +79,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
   justify-content: center;
   align-items: center;
   z-index: 1000;

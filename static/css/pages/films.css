@@ -1,5 +1,23 @@
 .main-films {
-    flex-direction: column;
-    justify-content: center;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+}
+
+.films-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+@media (min-width: 48rem) {
+  .films-section {
+    grid-template-columns: 1fr 1fr;
   }
+}
+
+@media (min-width: 70rem) {
+  .films-section {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

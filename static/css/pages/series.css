@@ -3,3 +3,21 @@
   justify-content: center;
   align-items: center;
 }
+
+.series-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5px;
+}
+
+@media (min-width: 48rem) {
+  .series-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 70rem) {
+  .series-section {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

@@ -89,43 +89,48 @@ document.addEventListener("DOMContentLoaded", () => {
 // URLs for JSON data
 const albumsUrl = "https://www.pgm.gent/data/bestof2024/albums.json";
 const filmsUrl = "https://www.pgm.gent/data/bestof2024/movies.json";
-// const gamesUrl = "https://www.pgm.gent/data/bestof2024/games.json";
+const gamesUrl = "https://www.pgm.gent/data/bestof2024/games.json";
 const seriesUrl = "https://www.pgm.gent/data/bestof2024/series.json";
 
-// Fetch and render content from external link
+// Fetch content from external link
 if (document.querySelector(".main-albums")) {
   fetchAndRenderContent(albumsUrl, "album-section");
 }
 if (document.querySelector(".main-films")) {
   fetchAndRenderContent(filmsUrl, "films-section");
 }
-// if (document.querySelector(".main-games")) {
-//   fetchAndRenderContent(gamesUrl, "games-section");
-// }
+if (document.querySelector(".main-games")) {
+  fetchAndRenderContent(gamesUrl, "games-section");
+}
 if (document.querySelector(".main-series")) {
   fetchAndRenderContent(seriesUrl, "series-section");
 }
 
-// format dates
+// Format dates
 function formatDate(dateString) {
   const date = new Date(dateString);
   const options = { month: "long", day: "2-digit", year: "numeric" };
   return date.toLocaleDateString(undefined, options);
 }
 
-// fetch and render content
+// Fetch and render content
 function fetchAndRenderContent(url, containerId) {
   fetch(url)
-    .then((response) => response.json())
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Network response was not ok: ${response.statusText}`);
+      }
+      return response.json();
+    })
     .then((data) => {
       renderMedia(containerId, data);
     })
-    .catch((error) =>
-      console.error(`Error fetching content from ${url}:`, error)
-    );
+    .catch((error) => {
+      console.error(`Error fetching content from ${url}:`, error);
+    });
 }
 
-// Function to render media
+//  Render media
 function renderMedia(containerId, mediaArray) {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -136,25 +141,27 @@ function renderMedia(containerId, mediaArray) {
   });
 }
 
-// Function to create a media article
+// Create a media article
 function createMediaArticle(media) {
   const currentPage = window.location.pathname.split("/").pop();
   const page = currentPage.replace(".html", "");
 
   const article = document.createElement("article");
 
+  // Common elements for all pages
   const img = document.createElement("img");
-  img.src = media.image;
-  img.alt = media.title;
+  img.src = media.image || "placeholder.jpg";
+  img.alt = media.title || "Media Item";
   img.className = `${page}__img`;
 
   const h2 = document.createElement("h2");
-  h2.textContent = media.title;
+  h2.textContent = media.title || "Untitled";
   h2.className = `${page}__title`;
 
   article.appendChild(img);
   article.appendChild(h2);
 
+  // Page-specific content
   if (page === "albums") {
     if (media.release_date) {
       const releaseDate = document.createElement("p");
@@ -162,15 +169,14 @@ function createMediaArticle(media) {
       releaseDate.className = `${page}__release-date`;
       article.appendChild(releaseDate);
     }
-
     if (media.genre && Array.isArray(media.genre)) {
       const genreContainer = document.createElement("div");
       genreContainer.className = `${page}__genre-container`;
 
-      media.genre.forEach((g) => {
+      media.genre.forEach((genre) => {
         const genreTag = document.createElement("span");
         genreTag.className = `${page}__genre`;
-        genreTag.textContent = g;
+        genreTag.textContent = genre;
         genreContainer.appendChild(genreTag);
       });
 
@@ -209,7 +215,7 @@ function createMediaArticle(media) {
   } else if (page === "series") {
     if (media.platform) {
       const platform = document.createElement("p");
-      platform.textContent = `${media.platform}`;
+      platform.textContent = media.platform;
       platform.className = `${page}__platform`;
 
       const platformLink = document.createElement("a");
@@ -218,25 +224,6 @@ function createMediaArticle(media) {
       platformLink.appendChild(platform);
 
       article.appendChild(platformLink);
-    }
-
-    function getPlatformUrl(platform) {
-      switch (platform.toLowerCase()) {
-        case "netflix":
-          return "https://www.netflix.com/";
-        case "hbo":
-          return "https://www.hbo.com/";
-        case "hbo max":
-          return "https://hbo.max.com/";
-        case "disney+":
-          return "https://www.disneyplus.com/";
-        case "prime":
-          return "https://www.primevideo.com/";
-        case "apple tv+":
-          return "https://tv.apple.com/";
-        default:
-          return "#";
-      }
     }
 
     if (media.short_description) {
@@ -268,95 +255,33 @@ function createMediaArticle(media) {
     }
 
     article.appendChild(linksContainer);
+  } else if (page === "games") {
+    if (media.honorable_mentions) {
+      article.className = "honorable-mention";
+    } else {
+      article.className = "regular-game";
+    }
   }
 
   return article;
-}
 
-// slideshow
-document.addEventListener("DOMContentLoaded", () => {
-  const slideshowImages = document.querySelectorAll(".main-games > div img");
-  const prevButton = document.getElementById("prev-button");
-  const nextButton = document.getElementById("next-button");
-  let currentIndex = 0;
-
-  const updateSlideshow = () => {
-    slideshowImages.forEach((img, index) => {
-      img.style.display = index === currentIndex ? "block" : "none";
-    });
-    prevButton.style.display = currentIndex === 0 ? "none" : "inline-flex";
-    nextButton.style.display =
-      currentIndex === slideshowImages.length - 1 ? "none" : "inline-flex";
-  };
-
-  prevButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (currentIndex > 0) {
-      currentIndex--;
-      updateSlideshow();
+  // Helper function for platform URLs
+  function getPlatformUrl(platform) {
+    switch (platform.toLowerCase()) {
+      case "netflix":
+        return "https://www.netflix.com/";
+      case "hbo":
+        return "https://www.hbo.com/";
+      case "hbo max":
+        return "https://hbo.max.com/";
+      case "disney+":
+        return "https://www.disneyplus.com/";
+      case "prime":
+        return "https://www.primevideo.com/";
+      case "apple tv+":
+        return "https://tv.apple.com/";
+      default:
+        return "#";
     }
-  });
-
-  nextButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (currentIndex < slideshowImages.length - 1) {
-      currentIndex++;
-      updateSlideshow();
-    }
-  });
-
-  updateSlideshow();
-});
-
-// Fullscreen function
-document.addEventListener("DOMContentLoaded", () => {
-  const gameImages = document.querySelectorAll(".main-games img");
-  const fullscreenOverlay = document.getElementById("fullscreen-overlay");
-  const fullscreenImage = document.getElementById("fullscreen-image");
-  const fullscreenTitle = document.getElementById("fullscreen-title");
-  const closeFullscreen = document.getElementById("close-fullscreen");
-  const prevImageButton = document.getElementById("prev-image");
-  const nextImageButton = document.getElementById("next-image");
-
-  let currentImageIndex = 0;
-
-  // Open fullscreen overlay
-  gameImages.forEach((img, index) => {
-    img.style.cursor = "pointer";
-    img.addEventListener("click", () => {
-      currentImageIndex = index;
-      updateFullscreenContent();
-      fullscreenOverlay.classList.add("active");
-    });
-  });
-
-  // Close fullscreen overlay
-  closeFullscreen.addEventListener("click", () => {
-    fullscreenOverlay.classList.remove("active");
-  });
-
-  // Navigate to previous image
-  prevImageButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (currentImageIndex > 0) {
-      currentImageIndex--;
-      updateFullscreenContent();
-    }
-  });
-
-  // Navigate to next image
-  nextImageButton.addEventListener("click", (e) => {
-    e.preventDefault();
-    if (currentImageIndex < gameImages.length - 1) {
-      currentImageIndex++;
-      updateFullscreenContent();
-    }
-  });
-
-  // Function to update the fullscreen content
-  function updateFullscreenContent() {
-    const currentImage = gameImages[currentImageIndex];
-    fullscreenImage.src = currentImage.src;
-    fullscreenTitle.textContent = currentImage.nextElementSibling.textContent; // Use the <p> tag content as the title
   }
-});
+}
