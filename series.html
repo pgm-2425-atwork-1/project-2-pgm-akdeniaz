@@ -56,10 +56,18 @@
           />
         </button>
         <!-- hamburger function + hidden overlay -->
-          <button class="hamburger" id="hamburger">
-            <img src="static/images/icons/burger.svg" alt="menu-icon">
-          </button>
-        </>
+        <button class="hamburger" id="hamburger">
+          <img
+            src="static/images/icons/burger.svg"
+            alt="menu-icon"
+            class="hamburger-icon"
+          />
+          <img
+            src="static/images/icons/cross.svg"
+            alt="close-icon"
+            class="close-icon hidden"
+          />
+        </button>
         <nav class="nav-list" id="nav-list">
           <a href="index.html">Intro</a>
           <a href="albums.html">Albums</a>
@@ -73,8 +81,9 @@
 
     <!-- MAIN -->
     <main class="main-series">
-      <h1><span>My favorite</span>series</h1>
-      <p>
+      <div class="intro__article">
+      <h1 class="intro__title"><span class="highlight">My favorite</span>series</h1>
+      <p class="intro__description">
         Last year I said Netflix kept on releasing interesting series but I
         think I cancelled and restarted my subscription twice this year. There
         was a definite lack of good series and I would have to look elsewhere to
@@ -83,6 +92,7 @@
         fun series and at the end of the year, the Witcher landed on Netflix, so
         all in all, it wasn’t that bad.
       </p>
+    </div>
       <section id="series-section"></section>
 
       <!-- PREVIOUS & NEXT BUTTONS -->

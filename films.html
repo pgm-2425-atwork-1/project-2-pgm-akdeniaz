@@ -42,44 +42,54 @@
     <link rel="stylesheet" href="static/css/pages/films.css" />
   </head>
   <body>
-    <!-- HEADER -->
-    <header class="header">
-      <!-- intro a link -->
-      <div class="nav-logo-holder">
-        <a class="intro" href="index.html">Best of 2024</a>
-        <!-- theme mode logo -->
-        <button class="theme-mode">
-          <img
-            class="theme-icon"
-            src="static/images/icons/sun.svg"
-            alt="Theme Icon"
-          />
-        </button>
-        <!-- hamburger function + hidden overlay -->
-          <button class="hamburger" id="hamburger">
-            <img src="static/images/icons/burger.svg" alt="menu-icon">
-          </button>
-        </>
-        <nav class="nav-list" id="nav-list">
-          <a href="index.html">Intro</a>
-          <a href="albums.html">Albums</a>
-          <a href="films.html">Films</a>
-          <a href="games.html">Games</a>
-          <a href="series.html">Series</a>
-          <a class="timeless" href="tijdloze.html">De Tijdloze</a>
-        </nav>        
-      </div>
-    </header>
+   <!-- HEADER -->
+   <header class="header">
+    <!-- intro a link -->
+    <div class="nav-logo-holder">
+      <a class="intro" href="index.html">Best of 2024</a>
+      <!-- theme mode logo -->
+      <button class="theme-mode">
+        <img
+          class="theme-icon"
+          src="static/images/icons/sun.svg"
+          alt="Theme Icon"
+        />
+      </button>
+      <!-- hamburger function + hidden overlay -->
+      <button class="hamburger" id="hamburger">
+        <img
+          src="static/images/icons/burger.svg"
+          alt="menu-icon"
+          class="hamburger-icon"
+        />
+        <img
+          src="static/images/icons/cross.svg"
+          alt="close-icon"
+          class="close-icon hidden"
+        />
+      </button>
+      <nav class="nav-list" id="nav-list">
+        <a href="index.html">Intro</a>
+        <a href="albums.html">Albums</a>
+        <a href="films.html">Films</a>
+        <a href="games.html">Games</a>
+        <a href="series.html">Series</a>
+        <a class="timeless" href="tijdloze.html">De Tijdloze</a>
+      </nav>        
+    </div>
+  </header>
 
     <!-- MAIN -->
     <main class="main-films">
-      <h1><span>My favorite</span>movies</h1>
-      <p>
+      <div class="intro__article">
+      <h1 class="intro__title"><span class="highlight">My favorite</span>movies</h1>
+      <p class="intro__description">
         I spent quite a bit less time in the cinema than in 2018 which was
         definitely my “year of films”. I stopped my habit of going to the cinema
         regularly. However, I kept listening to BBC’s film podcast and did
         discover some gems throughout 2024.
       </p>
+    </div>
       <section id="films-section"></section>
 
       <!-- PREVIOUS & NEXT BUTTONS -->
