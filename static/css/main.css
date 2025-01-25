@@ -2,7 +2,7 @@
 .timeless {
   padding: 1rem;
   background-color: var(--subtle-light);
-  border-radius: 5px;
+  border-radius: 0.3125rem;
 }
 
 /* navigation buttons */
@@ -24,12 +24,12 @@
   font-family: var(--font-header);
   font-weight: 400;
   padding: 0.7rem 1rem;
-  gap: 5px;
+  gap: 0.3125rem;
   display: flex;
   align-items: center;
   color: black;
   background-color: var(--subtle-light);
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   transition: background-color 0.3s ease;
 }
 

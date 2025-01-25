@@ -80,63 +80,64 @@
   </header>
 
       <!-- MAIN -->
-<div class="main-games">
-  <div class="intro__article">
-  <h1 class="intro__title"><span class="highlight">My favorite</span> games</h1>
-</div>
-  <article class="regular-game">
-  </article>
-</div>
-<!-- Navigation Buttons -->
-<div class="slideshow-nav">
-  <button id="prev-button" class="hidden"></button>
-  <button id="next-button"></button>
-</div>
-
-<section class="games-paragraph">
-  <p>
-    2019 is the year that I properly got into sim racing. After visiting a
-    friend and trying his rig I was convinced I wanted to spend some time
-    exploring sim racing. It is a ton of fun, and combined with an
-    interest in F1 and rally, a lot of my leisure time in 2019 had just
-    one theme: racing.
-  </p>
-  <p>
-    Looking back at the blog posts on my blog about sim racing ( , , , ) I
-    was clearly always going a bit deeper into sim racing. The past few
-    weeks have been so busy with work that I haven't had much time to
-    race. I think I reached a point where I believe I need to put hundreds
-    of hours into it to improve just a little bit. For me, it's always
-    been about the fun. Of course, being competitive is also fun. But I
-    can't justify it to myself to spend hours and hours behind the sim rig
-    to shave off a few seconds off a track time. So I think in 2020 I am
-    just going to race less, but focus on the parts that are fun to me:
-    discovering new tracks, new cars, maybe some racing with friends.
-  </p>
-</section>
-
-<section class="honorable-sectie">
-  <h3>Honorable Mentions</h3>
-  <p>
-    Observation: I have a penchant for deep simulation games, but these
-    can take hundreds of hours, so I kind of only got to play them a
-    little bit. Still; I find these games are still nice, even if it's
-    only for a few hours.
-  </p>
-  <div class="honorable-mentions-container">
-    <article class="honorable-mention">
-    </article>
-  </div>
-</section>
-
-<!-- Fullscreen Overlay -->
-<div id="fullscreen-overlay" class="fullscreen-overlay">
-  <div class="fullscreen-content">
-    <span id="close-fullscreen" class="close-fullscreen">&times;</span>
-    <img id="fullscreen-image" class="fullscreen-image" src="" alt="" />
-    <h2 id="fullscreen-title" class="fullscreen-title"></h2>
-  </div>
-</div>
+      <div class="main-games">
+        <div class="intro__article">
+          <h1 class="intro__title"><span class="highlight">My favorite</span> games</h1>
+        </div>
+      
+        <!-- Regular Games -->
+        <section class="regular-games-section">
+          <div class="regular-games-container">
+          </div>
+          <div class="slideshow-nav">
+            <button id="prev-button" class="hidden"></button>
+            <div id="dots-container"></div>
+            <button id="next-button"></button>
+          </div>
+          <p class="regular-games__text"><span class="text-before-br">2019 is the year that I properly got 
+            into sim racing. After visiting a 
+            friend and trying his rig I was 
+            convinced I wanted to spend some time 
+            exploring sim racing. It is a ton of 
+            fun, and combined with an interest in 
+            F1 and rally, a lot of my leisure 
+            time in 2019 had just one theme: 
+            racing. </span><br>
+            Looking back at the blog posts on my blog about sim racing (<span><a href="#">1</a>, <a href="#">2</a>, <a href="#">3</a>, <a href="#">4</a></span>) I was 
+clearly always going a bit deeper into sim racing. The past few weeks have 
+been so busy with work that I haven't had much time to race. I think I 
+reached a point where I believe I need to put hundred of hours into it to 
+improve just a little bit. For me, it's always been about the fun. Of course, 
+being competitive is also fun. But I can't justify it to myself to spend hours 
+and hours behind the sim rig to shave off a few seconds off a track time. So 
+I think in 2020 I am just going to race less, but focus on the parts that are 
+fun to me: discovering new tracks, new cars, maybe some racing with 
+friends.
+          </p>
+        </section>
+      
+        <!-- Honorable Games -->
+        <section class="honorable-section">
+          <h3 class="honorable-title">Honorable Mentions</h3>
+          <p class="honorable-text">
+            Observation: I have a penchant for deep simulation games, but these can 
+take hundreds of hours, so I kind of only got to play them a little bit. Still; I 
+find these games are still nice, even if it's only for a few hours.
+          </p>
+          <div class="honorable-mentions-container">
+          </div>
+        </section>
+      
+        <!-- Fullscreen -->
+        <div id="fullscreen-overlay" class="fullscreen-overlay">
+          <div class="fullscreen-content">
+            <span id="close-fullscreen" class="close-fullscreen">&times;</span>
+            <img id="fullscreen-image" class="fullscreen-image" src="" alt="" />
+            <h2 id="fullscreen-title" class="fullscreen-title"></h2>
+          </div>
+        </div>
+      </div>
+      
 
       <!-- PREVIOUS & NEXT BUTTONS -->
       <div class="navigation__links">
@@ -164,6 +165,7 @@
       </a>
     </p>
   </footer>
+    <script src="static/js/games.js"></script>
     <script src="static/js/main.js"></script>
   </body>
 </html>

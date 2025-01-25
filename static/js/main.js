@@ -96,7 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
 // URLs for JSON data
 const albumsUrl = "https://www.pgm.gent/data/bestof2024/albums.json";
 const filmsUrl = "https://www.pgm.gent/data/bestof2024/movies.json";
-const gamesUrl = "https://www.pgm.gent/data/bestof2024/games.json";
 const seriesUrl = "https://www.pgm.gent/data/bestof2024/series.json";
 
 // Fetch content from external link
@@ -105,9 +104,6 @@ if (document.querySelector(".main-albums")) {
 }
 if (document.querySelector(".main-films")) {
   fetchAndRenderContent(filmsUrl, "films-section");
-}
-if (document.querySelector(".main-games")) {
-  fetchAndRenderContent(gamesUrl, "games-section");
 }
 if (document.querySelector(".main-series")) {
   fetchAndRenderContent(seriesUrl, "series-section");
@@ -243,15 +239,6 @@ function createMediaArticle(media) {
       });
 
       article.appendChild(genreContainer);
-    }
-  } else if (page === "games") {
-    article.appendChild(img);
-    article.appendChild(h2);
-
-    if (media.honorable_mentions) {
-      article.className += " honorable-mention";
-    } else {
-      article.className += " regular-game";
     }
   }
 
