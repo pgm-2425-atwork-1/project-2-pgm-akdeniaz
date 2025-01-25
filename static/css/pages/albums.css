@@ -1,12 +1,11 @@
-/* FIXME */
+/* albums */
 .main-albums {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0;
 
   .albums__img {
-    width: 20rem;
+    width: 35rem;
   }
 
   .albums__title {
@@ -15,30 +14,29 @@
 
   .albums__genre-container {
     display: flex;
+    flex-direction: row;
     gap: 0.5rem;
-    padding: 0 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .albums__genre {
     display: flex;
     align-items: center;
     text-align: center;
+    justify-content: center;
+    width: 6rem;
     background-color: var(--subtle-light);
-    border-radius: 2rem;
-    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    padding: 0.5rem 0.5rem;
     font-size: 0.65rem;
     color: #333;
     transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: var(--accent-light);
-    }
   }
-}
 
-.albums__article {
-  gap: 0.5rem;
-  margin-bottom: 4rem;
+  &:hover {
+    background-color: var(--accent-light);
+  }
 }
 
 .album-intro {
@@ -46,24 +44,33 @@
   line-height: 1;
 }
 
-.album-section {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 5px;
+.albums__article {
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 4rem;
+  padding: 1rem;
 }
 
-/* .nav-list.visible {
-  right: 4rem;
-} */
-
 @media (min-width: 48rem) {
+  .main-albums {
+    padding: 1rem;
+  }
+
   .album-section {
-    grid-template-columns: 1fr 1fr;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 3rem;
+    align-items: stretch;
   }
 }
 
 @media (min-width: 70rem) {
+  .main-albums {
+    padding: 0 4rem 0 4rem;
+  }
+
   .album-section {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 75rem;
   }
 }

@@ -156,7 +156,7 @@ function createMediaArticle(media) {
   const article = document.createElement("article");
   article.className = `${page}__article`;
 
-  // Common elements for all pages
+  // Common image element
   const img = document.createElement("img");
   img.src = media.image || "placeholder.jpg";
   img.alt = media.title || "Media Item";
@@ -166,17 +166,71 @@ function createMediaArticle(media) {
   h2.textContent = media.title || "Untitled";
   h2.className = `${page}__title`;
 
-  article.appendChild(img);
-  article.appendChild(h2);
+  // films and series
+  if (page === "films" || page === "series") {
+    const leftContainer = document.createElement("div");
+    leftContainer.className = `${page}__left-container`;
 
-  // Page-specific content
-  if (page === "albums") {
+    const rightContainer = document.createElement("div");
+    rightContainer.className = `${page}__right-container`;
+
+    leftContainer.appendChild(img);
+    rightContainer.appendChild(h2);
+
+    if (page === "series" && media.platform) {
+      const platformLink = document.createElement("a");
+      platformLink.href = getPlatformUrl(media.platform);
+      platformLink.target = "_blank";
+      platformLink.textContent = media.platform;
+      platformLink.className = `${page}__platform`;
+      rightContainer.appendChild(platformLink);
+    }
+
+    // Description for films/series
+    if (media.short_description) {
+      const description = document.createElement("p");
+      description.innerHTML = media.short_description;
+      description.className = `${page}__description`;
+      rightContainer.appendChild(description);
+    }
+
+    // Additional links for films/series
+    const linksContainer = document.createElement("div");
+    linksContainer.className = `${page}__links-container`;
+
+    if (media.trailer_link) {
+      const trailerLink = document.createElement("a");
+      trailerLink.href = media.trailer_link;
+      trailerLink.textContent = "Trailer";
+      trailerLink.target = "_blank";
+      trailerLink.className = `${page}__trailer-link`;
+      linksContainer.appendChild(trailerLink);
+    }
+
+    if (media.imdb_link) {
+      const imdbLink = document.createElement("a");
+      imdbLink.href = media.imdb_link;
+      imdbLink.textContent = "IMDB";
+      imdbLink.target = "_blank";
+      imdbLink.className = `${page}__imdb-link`;
+      linksContainer.appendChild(imdbLink);
+    }
+
+    rightContainer.appendChild(linksContainer);
+
+    article.appendChild(leftContainer);
+    article.appendChild(rightContainer);
+  } else if (page === "albums") {
+    article.appendChild(img);
+    article.appendChild(h2);
+
     if (media.release_date) {
       const releaseDate = document.createElement("p");
       releaseDate.textContent = formatDate(media.release_date);
       releaseDate.className = `${page}__release-date`;
       article.appendChild(releaseDate);
     }
+
     if (media.genre && Array.isArray(media.genre)) {
       const genreContainer = document.createElement("div");
       genreContainer.className = `${page}__genre-container`;
@@ -190,90 +244,20 @@ function createMediaArticle(media) {
 
       article.appendChild(genreContainer);
     }
-  } else if (page === "films") {
-    if (media.short_description) {
-      const description = document.createElement("p");
-      description.innerHTML = media.short_description;
-      description.className = `${page}__description`;
-      article.appendChild(description);
-    }
-
-    const linksContainer = document.createElement("div");
-    linksContainer.className = `${page}__links-container`;
-
-    if (media.trailer_link) {
-      const trailerLink = document.createElement("a");
-      trailerLink.href = media.trailer_link;
-      trailerLink.textContent = "Trailer";
-      trailerLink.target = "_blank";
-      trailerLink.className = `${page}__trailer-link`;
-      linksContainer.appendChild(trailerLink);
-    }
-
-    if (media.imdb_link) {
-      const imdbLink = document.createElement("a");
-      imdbLink.href = media.imdb_link;
-      imdbLink.textContent = "IMDB";
-      imdbLink.target = "_blank";
-      imdbLink.className = `${page}__imdb-link`;
-      linksContainer.appendChild(imdbLink);
-    }
-
-    article.appendChild(linksContainer);
-  } else if (page === "series") {
-    if (media.platform) {
-      const platform = document.createElement("p");
-      platform.textContent = media.platform;
-      platform.className = `${page}__platform`;
-
-      const platformLink = document.createElement("a");
-      platformLink.href = getPlatformUrl(media.platform);
-      platformLink.target = "_blank";
-      platformLink.appendChild(platform);
-
-      article.appendChild(platformLink);
-    }
-
-    if (media.short_description) {
-      const description = document.createElement("p");
-      description.innerHTML = media.short_description;
-      description.className = `${page}__short_description`;
-      article.appendChild(description);
-    }
-
-    const linksContainer = document.createElement("div");
-    linksContainer.className = `${page}__links-container`;
-
-    if (media.trailer_link) {
-      const trailerLink = document.createElement("a");
-      trailerLink.href = media.trailer_link;
-      trailerLink.textContent = "Trailer";
-      trailerLink.target = "_blank";
-      trailerLink.className = `${page}__trailer-link`;
-      linksContainer.appendChild(trailerLink);
-    }
-
-    if (media.imdb_link) {
-      const imdbLink = document.createElement("a");
-      imdbLink.href = media.imdb_link;
-      imdbLink.textContent = "IMDB";
-      imdbLink.target = "_blank";
-      imdbLink.className = `${page}__imdb-link`;
-      linksContainer.appendChild(imdbLink);
-    }
-
-    article.appendChild(linksContainer);
   } else if (page === "games") {
+    article.appendChild(img);
+    article.appendChild(h2);
+
     if (media.honorable_mentions) {
-      article.className = "honorable-mention";
+      article.className += " honorable-mention";
     } else {
-      article.className = "regular-game";
+      article.className += " regular-game";
     }
   }
 
   return article;
 
-  // Platform URLs
+  // Platform URLs for Series
   function getPlatformUrl(platform) {
     switch (platform.toLowerCase()) {
       case "netflix":
