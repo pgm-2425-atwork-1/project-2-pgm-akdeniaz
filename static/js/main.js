@@ -15,10 +15,22 @@ navLinks.forEach((link) => {
 // Toggle mobile nav visibility
 const hamburger = document.getElementById("hamburger");
 const nav = document.getElementById("nav-list");
+const hamburgerIcon = document.querySelector(".hamburger-icon");
+const closeIcon = document.querySelector(".close-icon");
 
-// Toggle the nav visibility on hamburger click
+// Toggle the nav visibility and switch icons
 hamburger.addEventListener("click", () => {
   nav.classList.toggle("visible");
+  hamburger.classList.toggle("active");
+});
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth >= 1120) {
+    nav.classList.remove("visible");
+    hamburger.classList.remove("active");
+    hamburgerIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+  }
 });
 
 // Toggle dark/light mode on click

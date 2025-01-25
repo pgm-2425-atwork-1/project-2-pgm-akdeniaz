@@ -1,6 +1,21 @@
+.main-intro {
+  display: flex;
+  flex-direction: row;
+}
+
 .main-content {
   width: 100%;
-  max-width: 35.5rem;
+  max-width: 50rem;
+}
+
+.intro-title {
+  padding-top: 8rem;
+  padding-bottom: 1.5rem;
+  text-transform: none;
+}
+
+.paragraph {
+  font-size: xx-large;
 }
 
 .intro-shape {
@@ -74,7 +89,7 @@ body.dark-mode {
   }
 
   .intro-shape {
-    margin: right;
+    width: 50rem;
     padding: 0;
   }
 }

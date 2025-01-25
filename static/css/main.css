@@ -5,19 +5,6 @@
   border-radius: 5px;
 }
 
-/* light-dark mode */
-.theme-mode {
-  margin-left: auto;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.theme-icon {
-  width: 2rem;
-  height: 2rem;
-}
-
 /* navigation buttons */
 .navigation__links {
   display: flex;

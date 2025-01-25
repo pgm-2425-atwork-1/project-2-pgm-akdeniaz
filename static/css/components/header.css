@@ -12,7 +12,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .nav-logo-holder {
@@ -23,7 +23,20 @@ header {
 
 .intro {
   margin-right: auto;
-  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* light-dark mode */
+.theme-mode {
+  margin-left: auto;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.theme-icon {
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 /* hamburger-icon */
@@ -34,17 +47,43 @@ header {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  width: 3rem;
+  width: 4rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* toggle hamburger and close icons */
+.hamburger .hamburger-icon {
+  display: block;
+}
+
+.hamburger .close-icon {
+  display: none;
+}
+
+.hamburger.active .hamburger-icon {
+  display: none;
+}
+
+.hamburger.active .close-icon {
+  display: block;
 }
 
 /* nav-menu links */
 .visible a {
   display: block;
   font-size: 2rem;
+  font-weight: 500;
   text-decoration: none;
   padding: 1rem;
-  padding-top: 1rem;
-  border-top: 0.1rem solid var(--accent-light);
+  padding-bottom: 2.5rem;
+  border-bottom: 0.1rem solid var(--accent-light);
+}
+
+.nav-list.visible a:nth-child(5) {
+  border-bottom: none;
 }
 
 .nav-list {
@@ -62,9 +101,25 @@ header {
 }
 
 .nav-list.visible {
-  background: #fff;
+  position: absolute;
+  top: 6.475rem;
+  background-color: var(--shade-light);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
   opacity: 1;
   visibility: visible;
+}
+
+/* Push "De Tijdloze" to the bottom center */
+.nav-list.visible .timeless {
+  font-family: var(--font-header);
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin: 8rem 2rem 2rem 2rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--subtle-light);
 }
 
 body.dark-mode {
@@ -75,18 +130,20 @@ body.dark-mode {
   a {
     color: white;
   }
+
+  .nav-list.visible .timeless {
+    background-color: var(--tint-light);
+  }
 }
 
 .nav-list a {
   text-decoration: none;
-  color: var(--contrast-light);
-  margin: 1rem 0;
-  font-size: 5rem;
+  margin: 0.5rem;
+  font-size: 6rem;
   font-family: var(--font-body);
 }
 
-.nav-list a.active,
-.nav-list a:hover {
+.nav-list a.active {
   text-decoration: underline;
   text-underline-offset: 0.3125rem;
   text-decoration-color: var(--accent-light);
@@ -94,6 +151,21 @@ body.dark-mode {
 
 .nav-list a:hover {
   color: var(--accent-light);
+}
+
+.dark-mode {
+  .nav-list a.active {
+    text-decoration-color: var(--accent-subtle-light);
+  }
+
+  .nav-list a:hover {
+    color: var(--accent-subtle-light);
+  }
+}
+
+div.nav-action {
+  margin-top: 3rem;
+  margin-bottom: 8rem;
 }
 
 /* dark-mode */
@@ -106,7 +178,7 @@ body.dark-mode {
     filter: invert(1);
   }
   .visible a {
-    border-top: 0.1rem solid var(--subtle-dark);
+    border-bottom: 0.1rem solid var(--subtle-dark);
   }
 }
 
