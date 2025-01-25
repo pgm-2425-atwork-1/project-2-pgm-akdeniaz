@@ -84,7 +84,7 @@ h1 span {
 }
 
 img {
-  width: 31.5rem;
+  width: 40rem;
 }
 
 ul,
@@ -114,7 +114,6 @@ article {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 5rem;
 }
 
 body > footer {

@@ -1,7 +1,7 @@
 .intro__article {
   margin-left: auto;
   margin-right: auto;
-  padding: 2rem 2rem 5rem 2rem;
+  padding: 3rem 2rem 5rem 2rem;
 }
 
 .intro__title {
@@ -12,14 +12,14 @@
 }
 
 .highlight {
-  color: var(--tint-light);
+  color: var(--tint-dark);
   font-size: 2rem;
   font-weight: 500;
 }
 
 .intro__description {
   width: 100%;
-  max-width: 35.5rem;
+  max-width: 50rem;
   padding-top: 2rem;
 }
 
@@ -29,5 +29,16 @@
   }
   .intro__description {
     max-width: 40rem;
+  }
+}
+
+.dark-mode {
+  .intro__description {
+    color: var(--base-light);
+  }
+
+  .main-albums .albums__genre {
+    color: var(--tint-dark);
+    background-color: var(--tint-light);
   }
 }

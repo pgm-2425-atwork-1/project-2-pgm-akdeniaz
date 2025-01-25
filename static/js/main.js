@@ -154,6 +154,7 @@ function createMediaArticle(media) {
   const page = currentPage.replace(".html", "");
 
   const article = document.createElement("article");
+  article.className = `${page}__article`;
 
   // Common elements for all pages
   const img = document.createElement("img");
